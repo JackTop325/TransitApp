@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        title: const Text("Transit App"),
         actions: <Widget>[
           IconButton(
             icon: const Icon(CupertinoIcons.info_circle),
@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   applicationName: 'TransitApp',
                   applicationVersion: 'Version 1',
                   children: [
-                    Text('TransitApp'),
+                    Text('Transit App'),
                   ],
               );
             }
