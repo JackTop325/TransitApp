@@ -2,13 +2,13 @@
 
 Group members (3-5) (no Student IDs, only names and github usernames):
 
-1. 
+1. Jackie Jiang (Jacktop325)
 
-2. 
+2. Andrew ()
 
-3. 
+3. Kyle ()
 
-4. 
+4. Drake ()
 
 5.
 
