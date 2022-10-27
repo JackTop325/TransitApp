@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import 'Map/HomeWidget.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -13,7 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    Map_Widget(),
+    const homeWidget(),
 
     Container(
       color: Colors.green,
@@ -23,7 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
     Container(
       color: Colors.blue,
-    )
+    ),
   ];
 
   void _onItemTapped(int index) {
@@ -37,6 +39,21 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home"),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(CupertinoIcons.info_circle),
+            onPressed: () {
+              showAboutDialog(
+                  context: context,
+                  applicationName: 'TransitApp',
+                  applicationVersion: 'Version 1',
+                  children: [
+                    Text('TransitApp'),
+                  ],
+              );
+            }
+          )
+        ]
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
 
@@ -67,34 +84,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-Widget Map_Widget(){
-  return Stack(
-    children: <Widget>[
 
-      // Change Container to map later
-      Container(
-        color: Colors.green,
-      ),
-
-      Positioned(
-        top: 10,
-        right: 15,
-        left: 15,
-        child: Container(
-          color: Colors.white,
-          child: Row(
-            children: const <Widget>[
-              Expanded(
-                child: CupertinoSearchTextField(
-                  placeholder: 'Search Address',
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ],
-  );
-}
 
 
