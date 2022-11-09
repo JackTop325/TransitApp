@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transit_app/pages/splashscreen.dart';
-import 'package:transit_app/pages/setup.dart';
+import 'package:transit_app/pages/login.dart';
 import 'package:transit_app/pages/home.dart';
 
 void main() {

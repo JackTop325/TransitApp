@@ -79,6 +79,14 @@ flutter:
   fonts:
     - family: Satoshi
       fonts:
+        # - asset: fonts/Satoshi-Regular.otf
+        #   weight: 400
+        # - asset: fonts/Satoshi-Medium.otf
+        #   weight: 500
+        # - asset: fonts/Satoshi-Bold.otf
+        #   weight: 600
+        # - asset: fonts/Satoshi-Black.otf
+        #   weight: 900
         - asset: fonts/Satoshi-Variable.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic

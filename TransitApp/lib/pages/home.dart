@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                 applicationName: 'TransitApp',
                 applicationVersion: 'Version 1',
                 children: [
-                  Text('Transit App'),
+                  const Text('Transit App'),
                 ],
               );
             })
