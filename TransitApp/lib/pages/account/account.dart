@@ -88,7 +88,7 @@ class AccountPage extends StatelessWidget {
               ),
               TableTile(
                 title: 'Sign Out',
-                iconData: CupertinoIcons.info,
+                iconData: CupertinoIcons.person_badge_minus,
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmTeal50,
                 onPressed: () {},
