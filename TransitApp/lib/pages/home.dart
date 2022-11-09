@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../Map/HomeWidget.dart';
+import 'package:transit_app/pages/account/account.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,16 +13,10 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    const homeWidget(),
-    Container(
-      color: Colors.green,
-    ),
-    Container(
-      color: Colors.amber,
-    ),
-    Container(
-      color: Colors.blue,
-    ),
+    const Center(child: Text('Home')),
+    const Center(child: Text('Favorites')),
+    const Center(child: Text('Scheduled')),
+    const AccountPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -35,20 +28,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Transit App"), actions: <Widget>[
-        IconButton(
-            icon: const Icon(CupertinoIcons.info_circle),
-            onPressed: () {
-              showAboutDialog(
-                context: context,
-                applicationName: 'TransitApp',
-                applicationVersion: 'Version 1',
-                children: [
-                  const Text('Transit App'),
-                ],
-              );
-            })
-      ]),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -66,8 +45,8 @@ class _HomePageState extends State<HomePage> {
             label: 'Scheduled',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.chart_bar_circle),
-            label: 'Analytics',
+            icon: Icon(CupertinoIcons.person),
+            label: 'Account',
           ),
         ],
         currentIndex: _selectedIndex,

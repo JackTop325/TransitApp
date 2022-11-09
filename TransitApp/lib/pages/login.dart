@@ -13,12 +13,13 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16.0, 64.0, 16.0, 8.0),
+          padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(height: 128.0),
                 Center(
                   child: SvgPicture.asset(
                     'assets/logo.svg',
@@ -55,11 +56,7 @@ class LoginPage extends StatelessWidget {
                   iconData: CupertinoIcons.person_crop_circle_badge_plus,
                   onPressed: () {},
                 ),
-                const SizedBox(height: 12.0),
-                Flexible(
-                  fit: FlexFit.loose,
-                  child: Container(),
-                ),
+                const SizedBox(height: 18.0),
                 Center(
                   child: TextButton(
                       onPressed: () {
