@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:transit_app/pages/account/account.dart';
+import 'package:transit_app/colors.dart';
+import 'package:transit_app/pages/settings/settings.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
     const Center(child: Text('Home')),
     const Center(child: Text('Favorites')),
     const Center(child: Text('Scheduled')),
-    const AccountPage(),
+    const SettingsPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -30,6 +31,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: drtGreen,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -45,8 +47,8 @@ class _HomePageState extends State<HomePage> {
             label: 'Scheduled',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person),
-            label: 'Account',
+            icon: Icon(CupertinoIcons.settings),
+            label: 'Settings',
           ),
         ],
         currentIndex: _selectedIndex,

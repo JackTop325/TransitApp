@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:transit_app/widgets/table_tile.dart';
 // import 'package:transit_app/colors.dart';
 
-class AccountPage extends StatelessWidget {
-  const AccountPage({super.key});
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +50,13 @@ class AccountPage extends StatelessWidget {
                 color: ibmGray30,
               ),
               const SizedBox(height: 8.0),
+              TableTile(
+                title: 'Account',
+                iconData: CupertinoIcons.person,
+                iconColor: Colors.white,
+                iconBackgroundColor: ibmBlue50,
+                onPressed: () {},
+              ),
               TableTile(
                 title: 'Notifications',
                 iconData: CupertinoIcons.bell,
