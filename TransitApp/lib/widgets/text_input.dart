@@ -4,7 +4,13 @@ import 'package:transit_app/colors.dart';
 class TextInput extends StatefulWidget {
   final String label;
   final String? placeholder;
-  const TextInput({super.key, required this.label, this.placeholder});
+  final bool? isPassword;
+  const TextInput({
+    super.key,
+    required this.label,
+    this.placeholder,
+    this.isPassword = false,
+  });
 
   @override
   State<TextInput> createState() => _TextInputState();
@@ -16,6 +22,7 @@ class _TextInputState extends State<TextInput> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: widget.isPassword == true ? true : false,
       decoration: InputDecoration(
           labelText: widget.label,
           labelStyle: const TextStyle(

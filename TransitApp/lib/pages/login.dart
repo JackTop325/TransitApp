@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:transit_app/colors.dart';
+import 'package:transit_app/widgets/drt_elevated_button.dart';
 import 'package:transit_app/widgets/text_input.dart';
 
 class LoginPage extends StatelessWidget {
@@ -38,62 +39,23 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 20.0),
                 const TextInput(
                   label: 'Password',
+                  isPassword: true,
                 ),
                 const SizedBox(height: 20.0),
-                ElevatedButton(
+                DRTElevatedButton(
+                  text: 'Login',
+                  iconData: CupertinoIcons.arrow_right_circle_fill,
+                  iconColor: ibmGreen10,
                   onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 12.0,
-                    ),
-                    backgroundColor: ibmGreen60,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Login',
-                        style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.w400),
-                      ),
-                      const SizedBox(width: 20.0),
-                      const Icon(
-                        CupertinoIcons.arrow_right_circle_fill,
-                        color: ibmGreen10,
-                      ),
-                    ],
-                  ),
                 ),
                 const SizedBox(height: 12.0),
-                ElevatedButton(
+                DRTElevatedButton(
+                  text: 'Register',
+                  backgroundColor: Colors.black,
+                  iconData: CupertinoIcons.person_crop_circle_badge_plus,
                   onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 12.0,
-                    ),
-                    backgroundColor: Colors.black,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Register',
-                        style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.w400),
-                      ),
-                      const SizedBox(
-                        width: 16.0,
-                      ),
-                      const Icon(
-                        CupertinoIcons.person_crop_circle_badge_plus,
-                        color: Colors.white,
-                      ),
-                    ],
-                  ),
                 ),
+                const SizedBox(height: 12.0),
                 Flexible(
                   fit: FlexFit.loose,
                   child: Container(),
