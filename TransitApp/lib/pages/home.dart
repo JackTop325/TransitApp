@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:transit_app/colors.dart';
 import 'package:transit_app/pages/settings/settings.dart';
+import 'package:transit_app/pages/map.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    const Center(child: Text('Home')),
+    const MapPage(),
     const Center(child: Text('Favorites')),
     const Center(child: Text('Scheduled')),
     const SettingsPage(),

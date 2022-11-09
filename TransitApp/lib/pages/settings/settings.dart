@@ -4,9 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:transit_app/widgets/table_tile.dart';
 // import 'package:transit_app/colors.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -98,7 +103,11 @@ class SettingsPage extends StatelessWidget {
                 iconData: CupertinoIcons.person_badge_minus,
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmTeal50,
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    Navigator.pushReplacementNamed(context, '/login');
+                  });
+                },
               ),
               const SizedBox(height: 16.0),
             ],
