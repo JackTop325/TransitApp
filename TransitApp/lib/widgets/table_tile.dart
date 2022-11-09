@@ -20,11 +20,12 @@ class TableTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return TextButton(
       onPressed: () => onPressed(),
-      style: ElevatedButton.styleFrom(
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.all(0),
         elevation: 0.0,
-        backgroundColor: Colors.white,
+        backgroundColor: ibmGray10,
       ),
       child: ListTile(
         horizontalTitleGap: 2.0,

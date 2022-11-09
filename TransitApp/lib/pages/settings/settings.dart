@@ -96,7 +96,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconData: CupertinoIcons.gobackward,
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmMagenta60,
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    Navigator.pushReplacementNamed(context, '/');
+                  });
+                },
               ),
               TableTile(
                 title: 'Sign Out',
