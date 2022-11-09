@@ -4,6 +4,11 @@ const drtGreen = Color.fromARGB(255, 0, 112, 60);
 const drtGray = Color.fromARGB(255, 95, 96, 98);
 const drtOrange = Color.fromARGB(255, 220, 134, 51);
 
+const ibmAlertRed = Color.fromARGB(255, 218, 30, 40);
+const ibmAlertOrange = Color.fromARGB(255, 255, 131, 43);
+const ibmAlertYellow = Color.fromARGB(255, 241, 194, 27);
+const ibmAlertGreen = Color.fromARGB(255, 36, 161, 72);
+
 const ibmRed100 = Color.fromARGB(255, 45, 7, 9);
 const ibmRed90 = Color.fromARGB(255, 82, 4, 8);
 const ibmRed80 = Color.fromARGB(255, 117, 14, 19);
