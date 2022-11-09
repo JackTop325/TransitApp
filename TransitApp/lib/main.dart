@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Satoshi',
       ),
-      initialRoute: '/setup',
+      initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
-        '/setup': (context) => const SetupPage(),
+        '/login': (context) => const LoginPage(),
         '/home': (context) => const HomePage(),
       },
       debugShowCheckedModeBanner: false,

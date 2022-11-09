@@ -4,8 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:transit_app/colors.dart';
 import 'package:transit_app/widgets/text_input.dart';
 
-class SetupPage extends StatelessWidget {
-  const SetupPage({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +100,9 @@ class SetupPage extends StatelessWidget {
                 ),
                 Center(
                   child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(context, '/home');
+                      },
                       child: const Text(
                         "Continue without account",
                         style: TextStyle(color: ibmGreen60),

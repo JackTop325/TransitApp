@@ -7,6 +7,10 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      Navigator.pushReplacementNamed(context, '/login');
+    });
+
     return SafeArea(
       child: Container(
         color: Colors.white,
