@@ -7,7 +7,7 @@ Group members (3-5) (no Student IDs, only names and github usernames):
 | Jackie Jiang | Jacktop325 | 
 | Andrew| | 
 | Kyle Alvares| Kyle-Alvares |
-| Drake | |
+| Drake Doyle | Doyle-Github |
 
 
 ## Overview
