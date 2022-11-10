@@ -2,12 +2,12 @@
 
 Group members (3-5) (no Student IDs, only names and github usernames):
 
-|**Name**|**Github Username**|**Student Number**|
-|---|---|---|
-| Jackie Jiang | Jacktop325 | | 
+|**Name**|**Github Username**|
+|---|---|
+| Jackie Jiang | Jacktop325 | 
 | Andrew| | 
-| Kyle Alvares| Kyle-Alvares | 100703424 |
-| Drake | | |
+| Kyle Alvares| Kyle-Alvares |
+| Drake | |
 
 
 ## Overview

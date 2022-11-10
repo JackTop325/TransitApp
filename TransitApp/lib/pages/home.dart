@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:transit_app/colors.dart';
+import 'package:transit_app/pages/scheduled/scheduled.dart';
 import 'package:transit_app/pages/settings/settings.dart';
 import 'package:transit_app/pages/map.dart';
 
@@ -16,8 +17,8 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const MapPage(),
-    const Center(child: Text('Favorites')),
-    const Center(child: Text('Scheduled')),
+    const ScheduledPage(),
+    const Center(child: Text('Updates')),
     const SettingsPage(),
   ];
 
@@ -40,12 +41,12 @@ class _HomePageState extends State<HomePage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.star_fill),
-            label: 'Favourites',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.clock_solid),
             label: 'Scheduled',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.news_solid),
+            label: 'Updates',
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.settings),
