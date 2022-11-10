@@ -16,16 +16,16 @@ class ScheduledList extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 20.0,
-            color: ibmGray80,
+            color: ibmGray['80'],
           ),
         ),
         const SizedBox(height: 8.0),
         ClipRRect(
           borderRadius: BorderRadius.circular(10.0),
           child: Container(
-            color: ibmGray20,
+            color: ibmGray['20'],
             child: const ListTile(
               leading: Icon(
                 Icons.tram,

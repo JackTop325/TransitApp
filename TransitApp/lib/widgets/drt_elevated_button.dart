@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transit_app/colors.dart';
+// import 'package:transit_app/colors.dart';
 
 class DRTElevatedButton extends StatelessWidget {
   final String text;
@@ -13,7 +14,7 @@ class DRTElevatedButton extends StatelessWidget {
     super.key,
     required this.text,
     this.textColor = Colors.white,
-    this.backgroundColor = ibmGreen60,
+    this.backgroundColor = drtGreen,
     this.iconData,
     this.iconColor = Colors.white,
     required this.onPressed,

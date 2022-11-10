@@ -25,21 +25,21 @@ class _TextInputState extends State<TextInput> {
       obscureText: widget.isPassword == true ? true : false,
       decoration: InputDecoration(
           labelText: widget.label,
-          labelStyle: const TextStyle(
-            color: ibmGray80,
+          labelStyle: TextStyle(
+            color: ibmGray['80'],
           ),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16.0,
             vertical: 8.0,
           ),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: ibmGreen50, width: 2.0),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: ibmGreen['50']!, width: 2.0),
           ),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: ibmGray50, width: 2.0),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: ibmGray['50']!, width: 2.0),
           ),
-          disabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: ibmGray20, width: 2.0),
+          disabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: ibmGray['20']!, width: 2.0),
           ),
           hintText: widget.placeholder),
     );

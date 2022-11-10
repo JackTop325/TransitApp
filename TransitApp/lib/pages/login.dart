@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
                 Center(
                   child: SvgPicture.asset(
                     'assets/logo.svg',
-                    color: ibmGreen80,
+                    color: ibmGreen['80'],
                   ),
                 ),
                 const SizedBox(height: 50.0),
@@ -46,7 +46,7 @@ class LoginPage extends StatelessWidget {
                 DRTElevatedButton(
                   text: 'Login',
                   iconData: CupertinoIcons.arrow_right_circle_fill,
-                  iconColor: ibmGreen10,
+                  iconColor: ibmGreen['10'],
                   onPressed: () {},
                 ),
                 const SizedBox(height: 12.0),
@@ -62,9 +62,12 @@ class LoginPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushReplacementNamed(context, '/home');
                       },
-                      child: const Text(
+                      child: Text(
                         "Continue without account",
-                        style: TextStyle(color: ibmGreen60),
+                        style: TextStyle(
+                          color: ibmGreen['60'],
+                          fontSize: 16.0,
+                        ),
                       )),
                 )
               ],

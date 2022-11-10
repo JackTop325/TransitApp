@@ -21,7 +21,7 @@ class _MapPageState extends State<MapPage> {
         top: Radius.circular(20),
       ),
       panel: Container(
-        color: ibmGray10,
+        color: ibmGray['10'],
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 16.0),
           child: Column(
@@ -33,7 +33,7 @@ class _MapPageState extends State<MapPage> {
                   child: Container(
                     height: 3.0,
                     width: 30.0,
-                    color: ibmGray80,
+                    color: ibmGray['80'],
                   ),
                 ),
               ),

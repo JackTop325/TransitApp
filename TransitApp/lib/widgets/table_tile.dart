@@ -25,7 +25,7 @@ class TableTile extends StatelessWidget {
       style: TextButton.styleFrom(
         padding: const EdgeInsets.all(0),
         elevation: 0.0,
-        backgroundColor: ibmGray10,
+        backgroundColor: ibmGray['10'],
       ),
       child: ListTile(
         horizontalTitleGap: 2.0,

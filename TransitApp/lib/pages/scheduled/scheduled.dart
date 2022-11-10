@@ -17,7 +17,7 @@ class _ScheduledPageState extends State<ScheduledPage> {
       child: Container(
         constraints: const BoxConstraints.expand(),
         padding: const EdgeInsets.symmetric(horizontal: 32.0),
-        color: ibmGray10,
+        color: ibmGray['10'],
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

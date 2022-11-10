@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:transit_app/colors.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:transit_app/widgets/avatar_dialog.dart';
 import 'package:transit_app/widgets/table_tile.dart';
 // import 'package:transit_app/colors.dart';
 
@@ -17,7 +18,7 @@ class _SettingsPageState extends State<SettingsPage> {
     return SafeArea(
       child: Container(
         constraints: const BoxConstraints.expand(),
-        color: ibmGray10,
+        color: ibmGray['10'],
         padding: const EdgeInsets.fromLTRB(32.0, 0.0, 32.0, 0.0),
         child: SingleChildScrollView(
           child: Column(
@@ -40,54 +41,58 @@ class _SettingsPageState extends State<SettingsPage> {
                   fontSize: 24.0,
                 ),
               ),
-              const Center(
+              Center(
                 child: Text(
                   'Stored locally',
                   style: TextStyle(
                     fontSize: 16.0,
-                    color: ibmGray60,
+                    color: ibmGray['60'],
                   ),
                 ),
               ),
               const SizedBox(height: 16.0),
-              const Divider(
+              Divider(
                 thickness: 1.0,
-                color: ibmGray30,
+                color: ibmGray['30'],
               ),
               const SizedBox(height: 8.0),
               TableTile(
                 title: 'Account',
                 iconData: CupertinoIcons.person,
                 iconColor: Colors.white,
-                iconBackgroundColor: ibmBlue50,
+                iconBackgroundColor: ibmBlue['50'],
                 onPressed: () {},
               ),
               TableTile(
                 title: 'Notifications',
                 iconData: CupertinoIcons.bell,
                 iconColor: Colors.white,
-                iconBackgroundColor: ibmRed60,
+                iconBackgroundColor: ibmRed['60'],
                 onPressed: () {},
               ),
               TableTile(
                 title: 'Fares',
                 iconData: CupertinoIcons.money_dollar,
                 iconColor: Colors.white,
-                iconBackgroundColor: ibmGreen40,
-                onPressed: () {},
+                iconBackgroundColor: ibmGreen['40'],
+                onPressed: () => showDialog<String>(
+                  // barrierDismissible: false,
+                  context: context,
+                  builder: (BuildContext context) => AvatarDialog(),
+                ),
               ),
               TableTile(
                 title: 'Analytics',
                 iconData: CupertinoIcons.chart_bar_square_fill,
                 iconColor: Colors.white,
-                iconBackgroundColor: ibmPurple70,
+                iconBackgroundColor: ibmPurple['70'],
                 onPressed: () {},
               ),
               TableTile(
                 title: 'About',
                 iconData: CupertinoIcons.info,
                 iconColor: Colors.white,
-                iconBackgroundColor: ibmCyan60,
+                iconBackgroundColor: ibmCyan['60'],
                 onPressed: () {},
               ),
               const SizedBox(height: 20.0),
@@ -95,7 +100,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: 'Reset',
                 iconData: CupertinoIcons.gobackward,
                 iconColor: Colors.white,
-                iconBackgroundColor: ibmMagenta60,
+                iconBackgroundColor: ibmMagenta['60'],
                 onPressed: () {
                   setState(() {
                     Navigator.pushReplacementNamed(context, '/');
@@ -106,7 +111,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: 'Sign Out',
                 iconData: CupertinoIcons.person_badge_minus,
                 iconColor: Colors.white,
-                iconBackgroundColor: ibmTeal50,
+                iconBackgroundColor: ibmTeal['50'],
                 onPressed: () {
                   setState(() {
                     Navigator.pushReplacementNamed(context, '/login');
