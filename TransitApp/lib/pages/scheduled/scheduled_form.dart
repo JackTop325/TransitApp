@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:transit_app/colors.dart';
+import 'package:transit_app/widgets/screen_title.dart';
 
 class ScheduledForm extends StatefulWidget {
   ScheduledForm({super.key});
@@ -37,12 +38,7 @@ class _ScheduledFormState extends State<ScheduledForm> {
                     ),
                   ),
                   const SizedBox(width: 8.0),
-                  const Text(
-                    "Scheduled",
-                    style: TextStyle(
-                      fontSize: 32.0,
-                    ),
-                  ),
+                  const ScreenTitle(title: 'Create route'),
                 ],
               )
             ],

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:transit_app/colors.dart';
 import 'package:transit_app/pages/scheduled/scheduled_list.dart';
+import 'package:transit_app/widgets/screen_title.dart';
 
 class ScheduledPage extends StatefulWidget {
   ScheduledPage({super.key});
@@ -27,12 +28,7 @@ class _ScheduledPageState extends State<ScheduledPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    "Scheduled",
-                    style: TextStyle(
-                      fontSize: 32.0,
-                    ),
-                  ),
+                  const ScreenTitle(title: 'Scheduled'),
                   IconButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/scheduled');

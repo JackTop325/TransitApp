@@ -4,6 +4,7 @@ import 'package:transit_app/colors.dart';
 import 'package:transit_app/pages/scheduled/scheduled.dart';
 import 'package:transit_app/pages/settings/settings.dart';
 import 'package:transit_app/pages/map.dart';
+import 'package:transit_app/pages/updates/updates.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _widgetOptions = <Widget>[
     const MapPage(),
     ScheduledPage(),
-    const Center(child: Text('Updates')),
+    const UpdatesPage(),
     const SettingsPage(),
   ];
 
