@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:transit_app/colors.dart';
 
 class NewsCard extends StatelessWidget {
   final String title;
   final int views;
   final String imageUrl;
   final Color? backgroundColor;
+
   const NewsCard({
     super.key,
     required this.title,
@@ -31,7 +33,7 @@ class NewsCard extends StatelessWidget {
             Stack(
               children: [
                 SizedBox(
-                  height: 150,
+                  height: 100,
                   width: 200,
                   child: ColorFiltered(
                     colorFilter: const ColorFilter.mode(
@@ -66,12 +68,12 @@ class NewsCard extends StatelessWidget {
               ],
             ),
             Container(
-              height: 30.0,
+              height: 80.0,
               padding:
                   const EdgeInsets.only(top: 12.0, left: 12.0, right: 12.0),
               child: Text(
                 title,
-                overflow: TextOverflow.ellipsis,
+                overflow: TextOverflow.fade,
                 style: const TextStyle(
                   color: Colors.white,
                 ),

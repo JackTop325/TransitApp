@@ -16,7 +16,7 @@ class _NewsListState extends State<NewsList> {
     return StreamBuilder<QuerySnapshot>(
       stream: FirebaseFirestore.instance
           .collection('news')
-          .orderBy('date')
+          .orderBy('date', descending: true)
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
