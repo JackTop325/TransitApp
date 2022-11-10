@@ -22,7 +22,7 @@ class _NewsListState extends State<NewsList> {
         if (!snapshot.hasData) {
           return const CircularProgressIndicator();
         } else {
-          return Container(
+          return SizedBox(
             height: 200.0,
             child: ListView(
               scrollDirection: Axis.horizontal,

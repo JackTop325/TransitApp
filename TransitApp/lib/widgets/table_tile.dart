@@ -50,9 +50,9 @@ class TableTile extends StatelessWidget {
             fontSize: 18.0,
           ),
         ),
-        trailing: Container(
+        trailing: const SizedBox(
           height: double.infinity,
-          child: const Icon(
+          child: Icon(
             CupertinoIcons.right_chevron,
             size: 18.0,
           ),

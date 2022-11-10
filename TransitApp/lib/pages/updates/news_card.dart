@@ -16,7 +16,7 @@ class NewsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 180.0,
       width: 200.0,
       child: Card(
@@ -30,17 +30,17 @@ class NewsCard extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Container(
+                SizedBox(
                   height: 150,
                   width: 200,
                   child: ColorFiltered(
-                    child: Image.network(
-                      imageUrl,
-                      fit: BoxFit.cover,
-                    ),
                     colorFilter: const ColorFilter.mode(
                       Color.fromARGB(150, 100, 100, 100),
                       BlendMode.darken,
+                    ),
+                    child: Image.network(
+                      imageUrl,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),

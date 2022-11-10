@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:transit_app/colors.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:transit_app/pages/settings/fares/fare_details.dart';
 
 class TitleDialog extends StatefulWidget {
   final String title;

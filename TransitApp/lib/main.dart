@@ -17,10 +17,13 @@ class MyApp extends StatelessWidget {
       future: Firebase.initializeApp(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
+          // ignore: avoid_print
           print("Unable to connect to Firebase");
+          // ignore: avoid_print
           print(snapshot.error);
         }
         if (snapshot.connectionState == ConnectionState.done) {
+          // ignore: avoid_print
           print("Connected to Firebase");
           return MaterialApp(
             title: 'Flutter Demo',
@@ -38,7 +41,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
           );
         } else {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         }
       },
     );

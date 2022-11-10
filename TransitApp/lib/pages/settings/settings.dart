@@ -97,7 +97,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 onPressed: () => showDialog<String>(
                   // barrierDismissible: false,
                   context: context,
-                  builder: (BuildContext context) => SettingsAboutDialog(),
+                  builder: (BuildContext context) =>
+                      const SettingsAboutDialog(),
                 ),
               ),
               const SizedBox(height: 20.0),

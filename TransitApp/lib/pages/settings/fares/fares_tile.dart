@@ -25,7 +25,7 @@ class FaresTile extends StatelessWidget {
       ),
       title: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 16.0,
         ),
       ),
