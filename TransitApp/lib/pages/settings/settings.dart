@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:transit_app/colors.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:transit_app/widgets/avatar_dialog.dart';
+import 'package:transit_app/pages/settings/fares/fares_dialog.dart';
+import 'package:transit_app/pages/settings/about/about_dialog.dart';
 import 'package:transit_app/widgets/table_tile.dart';
 // import 'package:transit_app/colors.dart';
 
@@ -78,7 +79,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 onPressed: () => showDialog<String>(
                   // barrierDismissible: false,
                   context: context,
-                  builder: (BuildContext context) => AvatarDialog(),
+                  builder: (BuildContext context) => FaresDialog(),
                 ),
               ),
               TableTile(
@@ -93,7 +94,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconData: CupertinoIcons.info,
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmCyan['60'],
-                onPressed: () {},
+                onPressed: () => showDialog<String>(
+                  // barrierDismissible: false,
+                  context: context,
+                  builder: (BuildContext context) => SettingsAboutDialog(),
+                ),
               ),
               const SizedBox(height: 20.0),
               TableTile(

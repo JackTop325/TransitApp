@@ -17,7 +17,7 @@ class _ScheduledFormState extends State<ScheduledForm> {
         child: Container(
           constraints: const BoxConstraints.expand(),
           padding: const EdgeInsets.symmetric(horizontal: 32.0),
-          color: ibmGray['80'],
+          color: ibmGray['10'],
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

@@ -38,7 +38,7 @@ class FaresCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(12.0),
-                child: Container(
+                child: SizedBox(
                   height: 65.0,
                   width: 65.0,
                   child: Image.asset(avatar),
