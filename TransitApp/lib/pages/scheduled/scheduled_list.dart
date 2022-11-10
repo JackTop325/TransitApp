@@ -21,6 +21,7 @@ class ScheduledList extends StatelessWidget {
             color: ibmGray80,
           ),
         ),
+        const SizedBox(height: 8.0),
         ClipRRect(
           borderRadius: BorderRadius.circular(10.0),
           child: Container(
@@ -45,7 +46,8 @@ class ScheduledList extends StatelessWidget {
               trailing: Icon(CupertinoIcons.repeat),
             ),
           ),
-        )
+        ),
+        const SizedBox(height: 16.0),
       ],
     );
   }

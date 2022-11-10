@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const MapPage(),
-    const ScheduledPage(),
+    ScheduledPage(),
     const Center(child: Text('Updates')),
     const SettingsPage(),
   ];
