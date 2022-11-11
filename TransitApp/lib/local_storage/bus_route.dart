@@ -6,7 +6,7 @@ class BusRoute {
   bool? repeatRoute;
   String? routeNumber;
   String? routeName;
-  String? arrivalLocation;
+  String? departure;
   String? destination;
   DateTime? arrivalTime;
 
@@ -17,7 +17,7 @@ class BusRoute {
       this.repeatRoute,
       this.routeNumber,
       this.routeName,
-      this.arrivalLocation,
+      this.departure,
       this.destination,
       this.departureTime,
       this.arrivalTime});
@@ -30,7 +30,7 @@ class BusRoute {
       'repeatRoute': repeatRoute,
       'routeNumber': routeNumber,
       'routeName': routeName,
-      'arrivalLocation': arrivalLocation,
+      'departure': departure,
       'destination': destination,
       'departureTime': departureTime,
       'arrivalTime': arrivalTime
@@ -44,7 +44,7 @@ class BusRoute {
     repeatRoute = map['repeatRoute'];
     routeNumber = map['routeNumber'];
     routeName = map['routeName'];
-    arrivalLocation = map['arrivalLocation'];
+    departure = map['departure'];
     destination = map['destination'];
     departureTime = map['departureTime'];
     arrivalTime = map['arrivalTime'];
@@ -58,7 +58,7 @@ class BusRoute {
         'repeatRoute: $repeatRoute, '
         'routeNumber: $routeNumber, '
         'routeName: $routeName, '
-        'arrivalLocation: $arrivalLocation, '
+        'departure: $departure, '
         'destination: $destination, '
         'departureTime: $departureTime, '
         'arrivalTime: $arrivalTime';
