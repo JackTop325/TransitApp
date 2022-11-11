@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
+import 'package:transit_app/widgets/drt_snackbar.dart';
 
 import '../../../notifications/notification.dart';
 import 'arrival_times.dart';
@@ -18,16 +19,11 @@ class _StopDetailWidgetState extends State<StopDetailWidget> {
   final _notifications = Notifications();
 
   final List<ArrivalTime> _arrivals = [
-    ArrivalTime(
-        busId: '1a', routeName: 'Somewhere East',hour: 1,minute: 30),
-    ArrivalTime(
-        busId: '1b', routeName: 'Route East',hour: 1,minute: 45),
-    ArrivalTime(
-        busId: '2', routeName: 'Route West',hour: 2,minute: 30),
-    ArrivalTime(
-        busId: '2a', routeName: 'Route North',hour: 2,minute: 30),
-    ArrivalTime(
-        busId: '3', routeName: 'Route South',hour: 1,minute: 45),
+    ArrivalTime(busId: '1a', routeName: 'Somewhere East', hour: 1, minute: 30),
+    ArrivalTime(busId: '1b', routeName: 'Route East', hour: 1, minute: 45),
+    ArrivalTime(busId: '2', routeName: 'Route West', hour: 2, minute: 30),
+    ArrivalTime(busId: '2a', routeName: 'Route North', hour: 2, minute: 30),
+    ArrivalTime(busId: '3', routeName: 'Route South', hour: 1, minute: 45),
   ];
   bool? _isSelected = false;
   int? _selectedIndex;
@@ -44,11 +40,17 @@ class _StopDetailWidgetState extends State<StopDetailWidget> {
             onPressed: () {
               if (_isSelected!) {
                 _notificationLater(_arrivals[_selectedIndex!]);
-                ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Reminder Set')));
+                DRTSnackBar.display(
+                  context,
+                  'Reminder set',
+                  duration: 1000,
+                );
               } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('No Time Selected')));
+                DRTSnackBar.display(
+                  context,
+                  'No time selected',
+                  duration: 1000,
+                );
               }
             },
             icon: const Icon(
@@ -98,8 +100,8 @@ class _StopDetailWidgetState extends State<StopDetailWidget> {
     final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
 
     // time will be from storage
-    tz.TZDateTime scheduledTime =
-    tz.TZDateTime(tz.local, now.year, now.month, now.day,now.hour,now.minute,now.second);
+    tz.TZDateTime scheduledTime = tz.TZDateTime(tz.local, now.year, now.month,
+        now.day, now.hour, now.minute, now.second);
 
     scheduledTime = scheduledTime.add(Duration(seconds: 1));
 
