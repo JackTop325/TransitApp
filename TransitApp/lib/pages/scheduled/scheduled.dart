@@ -4,7 +4,6 @@ import 'package:transit_app/colors.dart';
 import 'package:transit_app/local_storage/schedule.dart';
 import 'package:transit_app/local_storage/schedule_model.dart';
 import 'package:transit_app/pages/scheduled/scheduled_form.dart';
-import 'package:transit_app/pages/scheduled/scheduled_list.dart';
 import 'package:transit_app/widgets/screen_title.dart';
 import 'package:transit_app/local_storage/db_utils.dart';
 
@@ -30,8 +29,6 @@ class _ScheduledPageState extends State<ScheduledPage> {
       model.getAllSchedules().then((schedules) {
         setState(() {
           items = schedules;
-          print('SCHEULDE DATABASE');
-          print(items.length);
         });
       });
     });

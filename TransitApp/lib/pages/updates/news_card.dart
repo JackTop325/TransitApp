@@ -40,8 +40,12 @@ class NewsCard extends StatelessWidget {
                       Color.fromARGB(150, 100, 100, 100),
                       BlendMode.darken,
                     ),
-                    child: Image.network(
-                      imageUrl,
+                    // child: Image.network(
+                    //   imageUrl,
+                    //   fit: BoxFit.cover,
+                    // ),
+                    child: Image.asset(
+                      'assets/bus_uoit.jpeg',
                       fit: BoxFit.cover,
                     ),
                   ),
