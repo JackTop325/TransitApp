@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transit_app/pages/updates/alert_list.dart';
 import 'package:transit_app/pages/updates/news_list.dart';
 import 'package:transit_app/widgets/screen_title.dart';
 import 'package:transit_app/colors.dart';
@@ -17,15 +18,24 @@ class _UpdatesPageState extends State<UpdatesPage> {
       child: Container(
         constraints: const BoxConstraints.expand(),
         color: ibmGray['10'],
-        padding: const EdgeInsets.fromLTRB(32.0, 0.0, 32.0, 0.0),
+        padding: const EdgeInsets.fromLTRB(32.0, 0.0, 32.0, 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 32.0),
             const ScreenTitle(title: 'Updates'),
-            const SizedBox(height: 16.0),
+            const SizedBox(height: 32.0),
             const NewsList(),
+            const SizedBox(height: 32.0),
+            Text(
+              'Service Alerts and Detours',
+              style: TextStyle(
+                color: ibmGray['80'],
+                fontSize: 24.0,
+              ),
+            ),
             const SizedBox(height: 16.0),
+            AlertList(),
           ],
         ),
       ),

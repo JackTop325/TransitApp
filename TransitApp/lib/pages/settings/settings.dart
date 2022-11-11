@@ -115,9 +115,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmMagenta['60'],
                 onPressed: () {
-                  setState(() {
-                    Navigator.pushReplacementNamed(context, '/');
-                  });
+                  Navigator.pushReplacementNamed(context, '/');
                 },
               ),
               TableTile(
@@ -126,9 +124,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmTeal['50'],
                 onPressed: () {
-                  setState(() {
-                    Navigator.pushReplacementNamed(context, '/login');
-                  });
+                  Navigator.pushReplacementNamed(context, '/login');
                 },
               ),
               const SizedBox(height: 16.0),

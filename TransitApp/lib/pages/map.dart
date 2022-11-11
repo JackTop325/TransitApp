@@ -57,7 +57,12 @@ class _MapPageState extends State<MapPage> {
         ),
       ),
       body: const Center(
-        child: Text("Home"),
+        child: Text(
+          "Home",
+          style: TextStyle(
+            fontSize: 24.0,
+          ),
+        ),
       ),
     );
   }

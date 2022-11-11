@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:transit_app/colors.dart';
+// import 'package:transit_app/colors.dart';
 
 class NewsCard extends StatelessWidget {
   final String title;
