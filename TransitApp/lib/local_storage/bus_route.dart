@@ -24,30 +24,30 @@ class BusRoute {
 
   Map<String, Object?> toMap() {
     return {
-      'id': this.id,
-      'hasNotification': this.hasNotification,
-      'notifyPeriod': this.notifyPeriod,
-      'repeatRoute': this.repeatRoute,
-      'routeNumber': this.routeNumber,
-      'routeName': this.routeName,
-      'arrivalLocation': this.arrivalLocation,
-      'destination': this.destination,
-      'departureTime': this.departureTime,
-      'arrivalTime': this.arrivalTime
+      'id': id,
+      'hasNotification': hasNotification,
+      'notifyPeriod': notifyPeriod,
+      'repeatRoute': repeatRoute,
+      'routeNumber': routeNumber,
+      'routeName': routeName,
+      'arrivalLocation': arrivalLocation,
+      'destination': destination,
+      'departureTime': departureTime,
+      'arrivalTime': arrivalTime
     };
   }
 
   BusRoute.fromMap(Map map) {
-    this.id = map['id'];
-    this.hasNotification = map['hasNotification'];
-    this.notifyPeriod = map['notifyPeriod'];
-    this.repeatRoute = map['repeatRoute'];
-    this.routeNumber = map['routeNumber'];
-    this.routeName = map['routeName'];
-    this.arrivalLocation = map['arrivalLocation'];
-    this.destination = map['destination'];
-    this.departureTime = map['departureTime'];
-    this.arrivalTime = map['arrivalTime'];
+    id = map['id'];
+    hasNotification = map['hasNotification'];
+    notifyPeriod = map['notifyPeriod'];
+    repeatRoute = map['repeatRoute'];
+    routeNumber = map['routeNumber'];
+    routeName = map['routeName'];
+    arrivalLocation = map['arrivalLocation'];
+    destination = map['destination'];
+    departureTime = map['departureTime'];
+    arrivalTime = map['arrivalTime'];
   }
 
   @override
