@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:transit_app/colors.dart';
+import 'package:transit_app/local_storage/schedule.dart';
+import 'package:transit_app/local_storage/schedule_model.dart';
+import 'package:transit_app/pages/scheduled/scheduled_form.dart';
 import 'package:transit_app/pages/scheduled/scheduled_list.dart';
 import 'package:transit_app/widgets/screen_title.dart';
+import 'package:transit_app/local_storage/db_utils.dart';
 
 class ScheduledPage extends StatefulWidget {
   ScheduledPage({super.key});
@@ -12,6 +16,27 @@ class ScheduledPage extends StatefulWidget {
 }
 
 class _ScheduledPageState extends State<ScheduledPage> {
+  ScheduleModel model = ScheduleModel();
+  List<Schedule> items = [];
+
+  @override
+  void initState() {
+    super.initState();
+    reload();
+  }
+
+  void reload() {
+    DBUtils.init().then((_) {
+      model.getAllSchedules().then((schedules) {
+        setState(() {
+          items = schedules;
+          print('SCHEULDE DATABASE');
+          print(items.length);
+        });
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,7 +56,7 @@ class _ScheduledPageState extends State<ScheduledPage> {
                   const ScreenTitle(title: 'Scheduled'),
                   IconButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/scheduled');
+                      addSchedule(context);
                     },
                     icon: const Icon(
                       CupertinoIcons.add,
@@ -41,12 +66,64 @@ class _ScheduledPageState extends State<ScheduledPage> {
                 ],
               ),
               const SizedBox(height: 32.0),
-              ScheduledList(title: 'Today'),
-              ScheduledList(title: 'All'),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  // return ListTile(
+                  //   title: Text(items[index].title ?? ''),
+                  // );
+                  return ListTile(
+                    horizontalTitleGap: 2.0,
+                    leading: const Icon(
+                      Icons.tram,
+                      color: drtGreen,
+                    ),
+                    title: Text(
+                      items[index].title ?? '',
+                      style: const TextStyle(
+                        fontSize: 18.0,
+                      ),
+                    ),
+                    subtitle: Text(
+                      items[index].destination ?? '',
+                      style: const TextStyle(
+                        fontSize: 15.0,
+                      ),
+                    ),
+                    trailing: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            items[index].preference!.split(' ')[0],
+                            style: const TextStyle(
+                              fontSize: 14.0,
+                              color: drtGray,
+                            ),
+                          ),
+                          Text(
+                            '${items[index].hour!.toString()}:${items[index].minute!.toString()}',
+                            style: const TextStyle(
+                                fontSize: 18.0, color: drtGreen),
+                          ),
+                        ]),
+                  );
+                },
+              ),
+              // ScheduledList(title: 'Today'),
+              // ScheduledList(title: 'All'),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Future addSchedule(BuildContext context) async {
+    var schedule = await Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => ScheduledForm()),
+    );
+    await model.insertSchedule(schedule);
+    reload();
   }
 }
