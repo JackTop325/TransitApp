@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:transit_app/colors.dart';
 import 'package:transit_app/firebase/alert.dart';
-import 'package:transit_app/firebase/news.dart';
+import 'package:transit_app/pages/updates/alert_tile.dart';
 
 class AlertList extends StatefulWidget {
   const AlertList({super.key});
@@ -44,19 +42,7 @@ class _AlertListState extends State<AlertList> {
       onTap: (() {
         // setState(() {});
       }),
-      child: ListTile(
-        leading: alert.isDetour == false
-            ? const Icon(
-                CupertinoIcons.exclamationmark_octagon,
-                color: ibmAlertRed,
-              )
-            : const Icon(
-                CupertinoIcons.exclamationmark_triangle,
-                color: ibmAlertYellow,
-              ),
-        title: Text(alert.title!),
-        subtitle: Text(alert.when ?? alert.description!),
-      ),
+      child: AlertTile(alert: alert),
     );
   }
 }
