@@ -5,6 +5,8 @@ import 'package:transit_app/colors.dart';
 import 'package:transit_app/widgets/drt_elevated_button.dart';
 import 'package:transit_app/widgets/text_input.dart';
 
+import 'stops/stop_detail_widget.dart';
+
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
 
@@ -56,12 +58,16 @@ class _MapPageState extends State<MapPage> {
           ),
         ),
       ),
-      body: const Center(
-        child: Text(
-          "Home",
-          style: TextStyle(
-            fontSize: 24.0,
+      body: Center(
+        child: ElevatedButton(
+          child: Text("Bus Stop",
+            style: TextStyle(fontSize: 30),
           ),
+          onPressed: (){
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const StopDetailWidget())
+            );
+          },
         ),
       ),
     );

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:transit_app/colors.dart';
 import 'package:transit_app/pages/scheduled/scheduled.dart';
 import 'package:transit_app/pages/settings/settings.dart';
-import 'package:transit_app/pages/map.dart';
+import 'package:transit_app/pages/map/map.dart';
 import 'package:transit_app/pages/updates/updates.dart';
 
 class HomePage extends StatefulWidget {
