@@ -3,6 +3,7 @@ import 'package:transit_app/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:transit_app/pages/settings/fares/fares_dialog.dart';
 import 'package:transit_app/pages/settings/about/about_dialog.dart';
+import 'package:transit_app/pages/settings/holidays/holiday_dialog.dart';
 import 'package:transit_app/widgets/drt_snackbar.dart';
 import 'package:transit_app/widgets/table_tile.dart';
 // import 'package:transit_app/colors.dart';
@@ -84,7 +85,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 onPressed: () => showDialog<String>(
                   // barrierDismissible: false,
                   context: context,
-                  builder: (BuildContext context) => FaresDialog(),
+                  builder: (BuildContext context) => const FaresDialog(),
                 ),
               ),
               TableTile(
@@ -97,10 +98,21 @@ class _SettingsPageState extends State<SettingsPage> {
                 },
               ),
               TableTile(
+                title: 'Holidays',
+                iconData: CupertinoIcons.calendar,
+                iconColor: Colors.white,
+                iconBackgroundColor: ibmCyan['60'],
+                onPressed: () => showDialog<String>(
+                  // barrierDismissible: false,
+                  context: context,
+                  builder: (BuildContext context) => const HolidayDialog(),
+                ),
+              ),
+              TableTile(
                 title: 'About',
                 iconData: CupertinoIcons.info,
                 iconColor: Colors.white,
-                iconBackgroundColor: ibmCyan['60'],
+                iconBackgroundColor: ibmGray['50'],
                 onPressed: () => showDialog<String>(
                   // barrierDismissible: false,
                   context: context,

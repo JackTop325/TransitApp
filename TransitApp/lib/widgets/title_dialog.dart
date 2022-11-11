@@ -7,7 +7,7 @@ class TitleDialog extends StatefulWidget {
   final Widget child;
   final double? height;
 
-  TitleDialog({
+  const TitleDialog({
     super.key,
     required this.title,
     this.titleColor = Colors.white,

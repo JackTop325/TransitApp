@@ -5,7 +5,7 @@ import 'package:transit_app/pages/settings/fares/fare_details.dart';
 import 'package:transit_app/widgets/title_dialog.dart';
 
 class FaresDialog extends StatefulWidget {
-  FaresDialog({super.key});
+  const FaresDialog({super.key});
 
   @override
   State<FaresDialog> createState() => _FaresDialogState();

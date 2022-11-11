@@ -35,7 +35,7 @@ class _UpdatesPageState extends State<UpdatesPage> {
               ),
             ),
             const SizedBox(height: 16.0),
-            AlertList(),
+            const AlertList(),
           ],
         ),
       ),

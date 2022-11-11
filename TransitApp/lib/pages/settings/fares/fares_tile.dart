@@ -5,9 +5,9 @@ class FaresTile extends StatelessWidget {
   final String title;
   final double price;
   final IconData iconData;
-  Map<String, Color> palette;
+  final Map<String, Color> palette;
 
-  FaresTile({
+  const FaresTile({
     super.key,
     required this.title,
     required this.price,

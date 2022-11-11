@@ -7,7 +7,7 @@ class FaresCard extends StatelessWidget {
   final Map<String, Color> palette;
   final Widget? details;
 
-  FaresCard({
+  const FaresCard({
     super.key,
     required this.category,
     required this.range,

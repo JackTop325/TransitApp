@@ -24,7 +24,7 @@ List fareCards = [
       ),
     ),
   ),
-  FaresCard(
+  const FaresCard(
     category: "Youth",
     range: "Ages 13 to 19",
     avatar: "assets/youth.png",
@@ -49,7 +49,7 @@ List fareCards = [
       ],
     ),
   ),
-  FaresCard(
+  const FaresCard(
     category: "Adult",
     range: "Ages 20 to 64",
     avatar: "assets/adult.png",
@@ -74,7 +74,7 @@ List fareCards = [
       ],
     ),
   ),
-  FaresCard(
+  const FaresCard(
     category: "Senior",
     range: "Ages 65 and older",
     avatar: "assets/senior.png",
