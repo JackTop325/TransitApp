@@ -23,7 +23,7 @@ class DRTElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () => onPressed(),
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
