@@ -3,6 +3,7 @@ import 'package:transit_app/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:transit_app/pages/settings/fares/fares_dialog.dart';
 import 'package:transit_app/pages/settings/about/about_dialog.dart';
+import 'package:transit_app/widgets/drt_snackbar.dart';
 import 'package:transit_app/widgets/table_tile.dart';
 // import 'package:transit_app/colors.dart';
 
@@ -62,14 +63,18 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconData: CupertinoIcons.person,
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmBlue['50'],
-                onPressed: () {},
+                onPressed: () {
+                  DRTSnackBar.display(context, 'Feature in progress...');
+                },
               ),
               TableTile(
                 title: 'Notifications',
                 iconData: CupertinoIcons.bell,
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmRed['60'],
-                onPressed: () {},
+                onPressed: () {
+                  DRTSnackBar.display(context, 'Feature in progress...');
+                },
               ),
               TableTile(
                 title: 'Fares',
@@ -87,7 +92,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconData: CupertinoIcons.chart_bar_square_fill,
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmPurple['70'],
-                onPressed: () {},
+                onPressed: () {
+                  DRTSnackBar.display(context, 'Feature in progress...');
+                },
               ),
               TableTile(
                 title: 'About',
