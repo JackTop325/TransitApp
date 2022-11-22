@@ -1,0 +1,290 @@
+[
+ {
+  "route_id": 101,
+  "agency_id": "drt",
+  "route_short_name": 101,
+  "route_long_name": "Route 101",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 103,
+  "agency_id": "drt",
+  "route_short_name": 103,
+  "route_long_name": "Route 103",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 110,
+  "agency_id": "drt",
+  "route_short_name": 110,
+  "route_long_name": "Route 110",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 112,
+  "agency_id": "drt",
+  "route_short_name": 112,
+  "route_long_name": "Route 112",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 120,
+  "agency_id": "drt",
+  "route_short_name": 120,
+  "route_long_name": "Route 120",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 211,
+  "agency_id": "drt",
+  "route_short_name": 211,
+  "route_long_name": "Route 211",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 216,
+  "agency_id": "drt",
+  "route_short_name": 216,
+  "route_long_name": "Route 216",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 222,
+  "agency_id": "drt",
+  "route_short_name": 222,
+  "route_long_name": "Route 222",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 224,
+  "agency_id": "drt",
+  "route_short_name": 224,
+  "route_long_name": "Route 224",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 291,
+  "agency_id": "drt",
+  "route_short_name": 291,
+  "route_long_name": "Route 291",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 302,
+  "agency_id": "drt",
+  "route_short_name": 302,
+  "route_long_name": "Route 302",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 319,
+  "agency_id": "drt",
+  "route_short_name": 319,
+  "route_long_name": "Route 319",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 392,
+  "agency_id": "drt",
+  "route_short_name": 392,
+  "route_long_name": "Route 392",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 403,
+  "agency_id": "drt",
+  "route_short_name": 403,
+  "route_long_name": "Route 403",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 405,
+  "agency_id": "drt",
+  "route_short_name": 405,
+  "route_long_name": "Route 405",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 407,
+  "agency_id": "drt",
+  "route_short_name": 407,
+  "route_long_name": "Route 407",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 409,
+  "agency_id": "drt",
+  "route_short_name": 409,
+  "route_long_name": "Route 409",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 410,
+  "agency_id": "drt",
+  "route_short_name": 410,
+  "route_long_name": "Route 410",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 411,
+  "agency_id": "drt",
+  "route_short_name": 411,
+  "route_long_name": "Route 411",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": "411T",
+  "agency_id": "drt",
+  "route_short_name": "411T",
+  "route_long_name": "Route 411T",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 423,
+  "agency_id": "drt",
+  "route_short_name": 423,
+  "route_long_name": "Route 423",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 502,
+  "agency_id": "drt",
+  "route_short_name": 502,
+  "route_long_name": "Route 502",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 900,
+  "agency_id": "drt",
+  "route_short_name": 900,
+  "route_long_name": "PULSE 900",
+  "route_type": 3,
+  "route_color": "cc6600",
+  "route_text_color": 0
+ },
+ {
+  "route_id": 901,
+  "agency_id": "drt",
+  "route_short_name": 901,
+  "route_long_name": "PULSE 901",
+  "route_type": 3,
+  "route_color": "cc6600",
+  "route_text_color": 0
+ },
+ {
+  "route_id": 902,
+  "agency_id": "drt",
+  "route_short_name": 902,
+  "route_long_name": "Route 902",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 905,
+  "agency_id": "drt",
+  "route_short_name": 905,
+  "route_long_name": "Route 905",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 915,
+  "agency_id": "drt",
+  "route_short_name": 915,
+  "route_long_name": "PULSE 915",
+  "route_type": 3,
+  "route_color": "cc6600",
+  "route_text_color": 0
+ },
+ {
+  "route_id": 916,
+  "agency_id": "drt",
+  "route_short_name": 916,
+  "route_long_name": "PULSE 916",
+  "route_type": 3,
+  "route_color": "cc6600",
+  "route_text_color": 0
+ },
+ {
+  "route_id": 917,
+  "agency_id": "drt",
+  "route_short_name": 917,
+  "route_long_name": "Route 917",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": 920,
+  "agency_id": "drt",
+  "route_short_name": 920,
+  "route_long_name": "Route 920",
+  "route_type": 3,
+  "route_color": 6633,
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": "N1",
+  "agency_id": "drt",
+  "route_short_name": "N1",
+  "route_long_name": "Route N1",
+  "route_type": 3,
+  "route_color": "0000ff",
+  "route_text_color": "ffffff"
+ },
+ {
+  "route_id": "N2",
+  "agency_id": "drt",
+  "route_short_name": "N2",
+  "route_long_name": "Route N2",
+  "route_type": 3,
+  "route_color": "0000ff",
+  "route_text_color": "ffffff"
+ }
+]

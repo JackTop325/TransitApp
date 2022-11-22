@@ -1,0 +1,9 @@
+[
+ {
+  "fare_id": "adult",
+  "price": 4,
+  "currency_type": "CAD",
+  "payment_method": 0,
+  "transfer_duration": 7200
+ }
+]

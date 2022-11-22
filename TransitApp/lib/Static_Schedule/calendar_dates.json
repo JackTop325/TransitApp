@@ -1,0 +1,352 @@
+[
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220906,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220907,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220908,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220909,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220912,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220913,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220914,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220915,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220916,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220919,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220920,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220921,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220922,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220923,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220926,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220927,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220928,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220929,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20220930,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221003,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221004,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221005,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221006,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221007,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Weekday",
+  "date": 20221010,
+  "exception_type": 2
+ },
+ {
+  "service_id": "WeekdayReg",
+  "date": 20221010,
+  "exception_type": 2
+ },
+ {
+  "service_id": "Post-Secondary",
+  "date": 20221010,
+  "exception_type": 2
+ },
+ {
+  "service_id": "High School Tripper",
+  "date": 20221010,
+  "exception_type": 2
+ },
+ {
+  "service_id": "SundayReg",
+  "date": 20221010,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Sunday",
+  "date": 20221010,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Sun",
+  "date": 20221010,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221011,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221012,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221013,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221014,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221017,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221018,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221019,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221020,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221021,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221024,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221025,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221026,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221027,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221028,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221031,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221101,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221102,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221103,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221104,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221107,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221108,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221109,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221110,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221111,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221114,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221115,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221116,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221117,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221118,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221121,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221122,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221123,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221124,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221125,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221128,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221129,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221130,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221201,
+  "exception_type": 1
+ },
+ {
+  "service_id": "Late Night Wkdy",
+  "date": 20221202,
+  "exception_type": 1
+ }
+]
