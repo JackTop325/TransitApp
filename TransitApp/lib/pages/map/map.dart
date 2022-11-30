@@ -13,6 +13,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
+import 'stops/stop.dart';
 import 'constants.dart';
 
 class MapPage extends StatefulWidget {
@@ -26,22 +27,70 @@ class _MapPageState extends State<MapPage> {
   late MapController mapController;
   var _myLocation;
   double _zoom = 17;
-  var mapMarkers = [];
-  List<LatLng> mapPoints = [];
+  List<Stop> mapMarkers = [];
 
   @override
   void initState() {
     super.initState();
     mapController = MapController();
-    setState(() {
-      _getCurrentPosition();
-    });
+    _getCurrentPosition();
+    _loadData();
+    setState(() {});
+  }
+
+  Future _loadData() async {
+    var response = await http.get(Uri.parse(
+        'https://maps.durham.ca/arcgis/rest/services/Open_Data/Durham_OpenData/MapServer/19/query?outFields=*&where=1%3D1&f=geojson'));
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data =
+          new Map<String, dynamic>.from(json.decode(response.body));
+      for (int i = 1; i < data['features'].length; i++) {
+        Stop stop = Stop(
+            data['features'][i]['properties']['OBJECTID'],
+            data['features'][i]['properties']['NAME'],
+            LatLng(data['features'][i]['geometry']['coordinates'][1],
+                data['features'][i]['geometry']['coordinates'][0]));
+        mapMarkers.add(stop);
+      }
+      setState(() {});
+    }
+
+    response = await http.get(Uri.parse(
+        'https://maps.durham.ca/arcgis/rest/services/Open_Data/Durham_OpenData/MapServer/19/query?outFields=*&where=1%3D1&resultOffset=1000&f=geojson'));
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data =
+      new Map<String, dynamic>.from(json.decode(response.body));
+      for (int i = 0; i < data['features'].length; i++) {
+        Stop stop = Stop(
+            data['features'][i]['properties']['OBJECTID'],
+            data['features'][i]['properties']['NAME'],
+            LatLng(data['features'][i]['geometry']['coordinates'][1],
+                data['features'][i]['geometry']['coordinates'][0]));
+        mapMarkers.add(stop);
+      }
+      setState(() {});
+    }
+    response = await http.get(Uri.parse(
+        'https://maps.durham.ca/arcgis/rest/services/Open_Data/Durham_OpenData/MapServer/19/query?outFields=*&where=1%3D1&resultOffset=1999&f=geojson'));
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data =
+      new Map<String, dynamic>.from(json.decode(response.body));
+      for (int i = 0; i < data['features'].length-1; i++) {
+        Stop stop = Stop(
+            data['features'][i]['properties']['OBJECTID'],
+            data['features'][i]['properties']['NAME'],
+            LatLng(data['features'][i]['geometry']['coordinates'][1],
+                data['features'][i]['geometry']['coordinates'][0]));
+        mapMarkers.add(stop);
+      }
+      setState(() {});
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return SlidingUpPanel(
-      minHeight: 250.0,
+      minHeight: 100,
       borderRadius: const BorderRadius.vertical(
         top: Radius.circular(20),
       ),
@@ -62,7 +111,7 @@ class _MapPageState extends State<MapPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16.0),
+              //const SizedBox(height: 16.0),
               //const TextInput(
               //  label: 'Starting Point',
               //  placeholder: 'Enter address',
@@ -86,10 +135,11 @@ class _MapPageState extends State<MapPage> {
                     ),
                     onSubmitted: (String address) async {
                       final List<Location> locations =
-                      await locationFromAddress(address);
+                          await locationFromAddress(address);
                       setState(() {
                         mapController.move(
-                            LatLng(locations[0].latitude, locations[0].longitude),
+                            LatLng(
+                                locations[0].latitude, locations[0].longitude),
                             _zoom);
                       });
                     },
@@ -108,35 +158,25 @@ class _MapPageState extends State<MapPage> {
               ),
               MarkerLayerOptions(
                 markers: [
-                  for (int i = 0; i < mapPoints.length; i++)
+                  for (int i = 0; i < mapMarkers.length; i++)
                     Marker(
                         height: 80,
                         width: 80,
-                        point: mapPoints[i],
+                        point: mapMarkers[i].location!,
                         builder: (context) {
                           return Container(
                               child: const Icon(
-                                Icons.location_on,
-                                size: 35,
-                                color: Colors.blue,
-                              ));
+                            Icons.location_on,
+                            size: 35,
+                            color: Colors.blue,
+                          ));
                         }),
-                ],
-              ),
-              PolylineLayerOptions(
-                polylines: [
-                  Polyline(
-                    points: mapPoints,
-                    strokeWidth: 2.0,
-                    color: Colors.blue,
-                  ),
                 ],
               ),
             ]),
       ]),
     );
   }
-
 
   Future<bool> _handleLocationPermission() async {
     bool serviceEnabled;
@@ -184,7 +224,7 @@ class _MapPageState extends State<MapPage> {
 
   _getLocationFromLatLong(LatLng location) async {
     final List<Placemark> places =
-    await placemarkFromCoordinates(location.latitude, location.longitude);
+        await placemarkFromCoordinates(location.latitude, location.longitude);
     return places[0];
   }
 }
