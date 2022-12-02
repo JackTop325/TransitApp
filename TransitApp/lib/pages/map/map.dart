@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:transit_app/colors.dart';
+import 'package:transit_app/pages/map/stops/stop_buses.dart';
 import 'package:transit_app/widgets/drt_elevated_button.dart';
 import 'package:transit_app/widgets/text_input.dart';
 import 'build_map.dart';
@@ -15,6 +16,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 import 'stops/stop.dart';
 import 'constants.dart';
+import 'stops/stop_buses.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -27,6 +29,8 @@ class _MapPageState extends State<MapPage> {
   late MapController mapController;
   var _myLocation;
   double _zoom = 17;
+  Offset? tapXY;
+  var overlay;
   List<Stop> mapMarkers = [];
 
   @override
@@ -44,9 +48,9 @@ class _MapPageState extends State<MapPage> {
     if (response.statusCode == 200) {
       Map<String, dynamic> data =
           new Map<String, dynamic>.from(json.decode(response.body));
-      for (int i = 1; i < data['features'].length; i++) {
+      for (int i = 0; i < data['features'].length; i++) {
         Stop stop = Stop(
-            data['features'][i]['properties']['OBJECTID'],
+            "${data['features'][i]['properties']['ABBREVIATI']}:1",
             data['features'][i]['properties']['NAME'],
             LatLng(data['features'][i]['geometry']['coordinates'][1],
                 data['features'][i]['geometry']['coordinates'][0]));
@@ -59,10 +63,10 @@ class _MapPageState extends State<MapPage> {
         'https://maps.durham.ca/arcgis/rest/services/Open_Data/Durham_OpenData/MapServer/19/query?outFields=*&where=1%3D1&resultOffset=1000&f=geojson'));
     if (response.statusCode == 200) {
       Map<String, dynamic> data =
-      new Map<String, dynamic>.from(json.decode(response.body));
+          new Map<String, dynamic>.from(json.decode(response.body));
       for (int i = 0; i < data['features'].length; i++) {
         Stop stop = Stop(
-            data['features'][i]['properties']['OBJECTID'],
+            "${data['features'][i]['properties']['ABBREVIATI']}:1",
             data['features'][i]['properties']['NAME'],
             LatLng(data['features'][i]['geometry']['coordinates'][1],
                 data['features'][i]['geometry']['coordinates'][0]));
@@ -74,10 +78,10 @@ class _MapPageState extends State<MapPage> {
         'https://maps.durham.ca/arcgis/rest/services/Open_Data/Durham_OpenData/MapServer/19/query?outFields=*&where=1%3D1&resultOffset=1999&f=geojson'));
     if (response.statusCode == 200) {
       Map<String, dynamic> data =
-      new Map<String, dynamic>.from(json.decode(response.body));
-      for (int i = 0; i < data['features'].length-1; i++) {
+          new Map<String, dynamic>.from(json.decode(response.body));
+      for (int i = 0; i < data['features'].length - 1; i++) {
         Stop stop = Stop(
-            data['features'][i]['properties']['OBJECTID'],
+            "${data['features'][i]['properties']['ABBREVIATI']}:1",
             data['features'][i]['properties']['NAME'],
             LatLng(data['features'][i]['geometry']['coordinates'][1],
                 data['features'][i]['geometry']['coordinates'][0]));
@@ -89,6 +93,8 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
+    overlay = Overlay.of(context)?.context.findRenderObject();
+
     return SlidingUpPanel(
       minHeight: 100,
       borderRadius: const BorderRadius.vertical(
@@ -164,18 +170,48 @@ class _MapPageState extends State<MapPage> {
                         width: 80,
                         point: mapMarkers[i].location!,
                         builder: (context) {
-                          return Container(
-                              child: const Icon(
-                            Icons.location_on,
-                            size: 35,
-                            color: Colors.blue,
-                          ));
+                          return GestureDetector(
+                            onTapDown: getPosition,
+                            child: IconButton(
+                              onPressed: () {
+                                showMenu(
+                                  context: context,
+                                  position: RelativeRect.fromSize(
+                                      tapXY! & const Size(40, 40),
+                                      overlay.size),
+                                  items: [
+                                    PopupMenuItem(
+                                      child: TextButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    StopBuses()),
+                                          );
+                                        },
+                                        child: Text(mapMarkers[i].stop_name),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                              icon: const Icon(
+                                Icons.circle,
+                                color: Colors.green,
+                              ),
+                            ),
+                          );
                         }),
                 ],
               ),
             ]),
       ]),
     );
+  }
+
+  void getPosition(TapDownDetails detail) {
+    tapXY = detail.globalPosition;
   }
 
   Future<bool> _handleLocationPermission() async {

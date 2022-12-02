@@ -15,7 +15,6 @@ class StopDetailWidget extends StatefulWidget {
 }
 
 class _StopDetailWidgetState extends State<StopDetailWidget> {
-  final _formKey = GlobalKey<FormState>();
   final _notifications = Notifications();
 
   final List<ArrivalTime> _arrivals = [
