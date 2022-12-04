@@ -1,13 +1,17 @@
 class ArrivalTime{
-  String? busId;
-  String? routeName;
   String? title = "Bus Arriving Soon";
   String? body;
   String? payload = "Placeholder";
-  int? hour;
-  int? minute;
+  var busId;
+  var trip_id;
+  var time;
+  var stop_id;
 
-  ArrivalTime({this.busId,this.routeName,this.hour, this.minute}){
-    body = "$busId $routeName is arriving soon";
+  ArrivalTime(this.busId, this.trip_id, this.time, this.stop_id){
+    body = "$busId is arriving soon";
+  }
+
+  String toString() {
+    return 'ArrivalTime{trip_id: $trip_id, time: $time, stop_id: $stop_id}';
   }
 }
