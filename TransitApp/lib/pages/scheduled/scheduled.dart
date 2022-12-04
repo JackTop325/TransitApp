@@ -6,6 +6,7 @@ import 'package:transit_app/local_storage/schedule_model.dart';
 import 'package:transit_app/pages/scheduled/scheduled_form.dart';
 import 'package:transit_app/widgets/screen_title.dart';
 import 'package:transit_app/local_storage/db_utils.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class ScheduledPage extends StatefulWidget {
   ScheduledPage({super.key});
@@ -70,40 +71,57 @@ class _ScheduledPageState extends State<ScheduledPage> {
                   // return ListTile(
                   //   title: Text(items[index].title ?? ''),
                   // );
-                  return ListTile(
-                    horizontalTitleGap: 2.0,
-                    leading: const Icon(
-                      Icons.tram,
-                      color: drtGreen,
+                  return Slidable(
+                    endActionPane: ActionPane(
+                      motion: ScrollMotion(),
+                      children: [
+                        SlidableAction(
+                          // An action can be bigger than the others.
+                          flex: 2,
+                          onPressed: (context) =>
+                              deleteSchedule(items[index].id!),
+                          backgroundColor: ibmAlertRed,
+                          foregroundColor: Colors.white,
+                          icon: Icons.delete,
+                          label: 'Delete',
+                        ),
+                      ],
                     ),
-                    title: Text(
-                      items[index].title ?? '',
-                      style: const TextStyle(
-                        fontSize: 18.0,
+                    child: ListTile(
+                      horizontalTitleGap: 2.0,
+                      leading: const Icon(
+                        Icons.tram,
+                        color: drtGreen,
                       ),
-                    ),
-                    subtitle: Text(
-                      items[index].destination ?? '',
-                      style: const TextStyle(
-                        fontSize: 15.0,
+                      title: Text(
+                        items[index].title ?? '',
+                        style: const TextStyle(
+                          fontSize: 18.0,
+                        ),
                       ),
-                    ),
-                    trailing: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            items[index].preference!.split(' ')[0],
-                            style: const TextStyle(
-                              fontSize: 14.0,
-                              color: drtGray,
+                      subtitle: Text(
+                        items[index].destination ?? '',
+                        style: const TextStyle(
+                          fontSize: 15.0,
+                        ),
+                      ),
+                      trailing: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              items[index].preference!.split(' ')[0],
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                                color: drtGray,
+                              ),
                             ),
-                          ),
-                          Text(
-                            '${items[index].hour!.toString()}:${items[index].minute!.toString()}',
-                            style: const TextStyle(
-                                fontSize: 18.0, color: drtGreen),
-                          ),
-                        ]),
+                            Text(
+                              '${items[index].hour!.toString()}:${items[index].minute! < 10 ? '0${items[index].minute!}' : items[index].minute!.toString()}',
+                              style: const TextStyle(
+                                  fontSize: 18.0, color: drtGreen),
+                            ),
+                          ]),
+                    ),
                   );
                 },
               ),
@@ -122,5 +140,12 @@ class _ScheduledPageState extends State<ScheduledPage> {
     );
     await model.insertSchedule(schedule);
     reload();
+  }
+
+  Future deleteSchedule(String id) async {
+    print(id);
+    await model.deleteScheduleWithId(id);
+    reload();
+    print('deleted');
   }
 }

@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:transit_app/colors.dart';
@@ -5,6 +6,7 @@ import 'package:transit_app/widgets/drt_elevated_button.dart';
 import 'package:transit_app/widgets/screen_title.dart';
 import 'package:transit_app/widgets/text_input.dart';
 import 'package:transit_app/local_storage/schedule.dart';
+import 'package:transit_app/pages/google/directions_repository.dart';
 // import 'package:uuid/uuid.dart';
 
 class ScheduledForm extends StatefulWidget {
@@ -15,6 +17,7 @@ class ScheduledForm extends StatefulWidget {
 }
 
 class _ScheduledFormState extends State<ScheduledForm> {
+  DirectionsRepository dr = DirectionsRepository(dio: Dio());
   String id = DateTime.now().millisecondsSinceEpoch.toString();
   String title = '';
   String departure = '';
@@ -26,6 +29,8 @@ class _ScheduledFormState extends State<ScheduledForm> {
 
   @override
   Widget build(BuildContext context) {
+    var directions = dr.getDirections(
+        origin: 'Ontario Tech University', destination: 'Oshawa Go');
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -127,7 +132,7 @@ class _ScheduledFormState extends State<ScheduledForm> {
                         );
                       },
                       child: Text(
-                          '${timeOfDay.hour.toString()}:${timeOfDay.minute.toString()}'),
+                          '${timeOfDay.hour.toString()}:${timeOfDay.minute < 10 ? '0${timeOfDay.minute}' : timeOfDay.minute.toString()}'),
                     ),
                     // child: Text('works')),
                   ],
@@ -139,6 +144,9 @@ class _ScheduledFormState extends State<ScheduledForm> {
                 DRTElevatedButton(
                   text: 'Submit',
                   onPressed: () {
+                    // var directions = dr.getDirections(
+                    //     origin: departure, destination: destination);
+                    // print(directions);
                     Navigator.of(context).pop(
                       Schedule(
                         id: id,

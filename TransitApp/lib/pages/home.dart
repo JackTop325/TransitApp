@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:transit_app/colors.dart';
 import 'package:transit_app/pages/scheduled/scheduled.dart';
 import 'package:transit_app/pages/settings/settings.dart';
@@ -17,7 +18,8 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    const MapPage(),
+    // const MapPage(),
+    Container(),
     ScheduledPage(),
     const UpdatesPage(),
     const SettingsPage(),

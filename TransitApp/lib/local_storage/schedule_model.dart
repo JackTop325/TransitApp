@@ -35,7 +35,7 @@ class ScheduleModel {
     );
   }
 
-  Future deleteScheduleWithId(int id) async {
+  Future deleteScheduleWithId(String id) async {
     final db = await DBUtils.init();
     await db.delete(
       'schedule_items',

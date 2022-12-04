@@ -47,7 +47,7 @@ class _MapPageState extends State<MapPage> {
         'https://maps.durham.ca/arcgis/rest/services/Open_Data/Durham_OpenData/MapServer/19/query?outFields=*&where=1%3D1&f=geojson'));
     if (response.statusCode == 200) {
       Map<String, dynamic> data =
-      new Map<String, dynamic>.from(json.decode(response.body));
+          new Map<String, dynamic>.from(json.decode(response.body));
       for (int i = 0; i < data['features'].length; i++) {
         Stop stop = Stop(
             "${data['features'][i]['properties']['ABBREVIATI']}:1",
@@ -63,7 +63,7 @@ class _MapPageState extends State<MapPage> {
         'https://maps.durham.ca/arcgis/rest/services/Open_Data/Durham_OpenData/MapServer/19/query?outFields=*&where=1%3D1&resultOffset=1000&f=geojson'));
     if (response.statusCode == 200) {
       Map<String, dynamic> data =
-      new Map<String, dynamic>.from(json.decode(response.body));
+          new Map<String, dynamic>.from(json.decode(response.body));
       for (int i = 0; i < data['features'].length; i++) {
         Stop stop = Stop(
             "${data['features'][i]['properties']['ABBREVIATI']}:1",
@@ -77,7 +77,8 @@ class _MapPageState extends State<MapPage> {
     response = await http.get(Uri.parse(
         'https://maps.durham.ca/arcgis/rest/services/Open_Data/Durham_OpenData/MapServer/19/query?outFields=*&where=1%3D1&resultOffset=1999&f=geojson'));
     if (response.statusCode == 200) {
-      Map<String, dynamic> data = new Map<String, dynamic>.from(json.decode(response.body));
+      Map<String, dynamic> data =
+          new Map<String, dynamic>.from(json.decode(response.body));
       for (int i = 0; i < data['features'].length - 1; i++) {
         Stop stop = Stop(
             "${data['features'][i]['properties']['ABBREVIATI']}:1",
@@ -146,7 +147,7 @@ class _MapPageState extends State<MapPage> {
                     ),
                     onSubmitted: (String address) async {
                       final List<Location> locations =
-                      await locationFromAddress(address);
+                          await locationFromAddress(address);
                       setState(() {
                         mapController.move(
                             LatLng(
@@ -191,8 +192,9 @@ class _MapPageState extends State<MapPage> {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                                builder: (context) =>
-                                                    StopBuses(stop_id: mapMarkers[i].stop_id)),
+                                                builder: (context) => StopBuses(
+                                                    stop_id:
+                                                        mapMarkers[i].stop_id)),
                                           );
                                         },
                                         child: Text(mapMarkers[i].stop_name),
@@ -259,13 +261,13 @@ class _MapPageState extends State<MapPage> {
         mapController.move(_myLocation, _zoom);
       });
     }).catchError((e) {
-      debugPrint(e);
+      debugPrint(e.toString());
     });
   }
 
   _getLocationFromLatLong(LatLng location) async {
     final List<Placemark> places =
-    await placemarkFromCoordinates(location.latitude, location.longitude);
+        await placemarkFromCoordinates(location.latitude, location.longitude);
     return places[0];
   }
 }
