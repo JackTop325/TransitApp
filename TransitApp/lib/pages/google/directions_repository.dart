@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
@@ -11,7 +13,7 @@ class DirectionsRepository {
 
   DirectionsRepository({required this.dio});
 
-  getDirections({
+  Future getDirections({
     required String origin,
     required String destination,
   }) async {
@@ -44,7 +46,7 @@ class DirectionsRepository {
         // print(
         //     response.data['routes'][0]['legs']['duration']['text'].toString());
       }
-      return response.data;
+      return jsonEncode(response.data);
       // return Directions.fromMap(response.data);
     }
     return null;

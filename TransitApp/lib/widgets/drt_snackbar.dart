@@ -3,7 +3,7 @@ import 'package:transit_app/colors.dart';
 
 class DRTSnackBar {
   static void display(BuildContext context, String text,
-      {int duration = 1500}) {
+      {int duration = 1500, Color backgroundColor = drtGreen}) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(
         text,
@@ -11,7 +11,7 @@ class DRTSnackBar {
           fontFamily: 'Satoshi',
         ),
       ),
-      backgroundColor: drtGreen,
+      backgroundColor: backgroundColor,
       behavior: SnackBarBehavior.floating,
       margin: const EdgeInsets.only(
         bottom: 16.0,

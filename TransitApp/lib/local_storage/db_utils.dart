@@ -14,7 +14,8 @@ class DBUtils {
           'destination TEXT NOT NULL,'
           'preference TEXT NOT NULL,'
           'hour INTEGER NOT NULL,'
-          'minute INTEGER NOT NULL'
+          'minute INTEGER NOT NULL,'
+          'details TEXT'
           ')',
         );
       },

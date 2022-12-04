@@ -6,6 +6,7 @@ class Schedule {
   String? preference;
   int? hour;
   int? minute;
+  String? details;
 
   Schedule({
     this.id,
@@ -15,6 +16,7 @@ class Schedule {
     this.preference,
     this.hour,
     this.minute,
+    this.details,
   });
 
   Schedule.fromMap(Map map) {
@@ -25,6 +27,7 @@ class Schedule {
     preference = map['preference'];
     hour = map['hour'];
     minute = map['minute'];
+    details = map['details'];
   }
 
   Map<String, Object?> toMap() {
@@ -36,6 +39,7 @@ class Schedule {
       'preference': preference,
       'hour': hour,
       'minute': minute,
+      'details': details
     };
   }
 

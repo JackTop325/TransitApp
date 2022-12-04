@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:transit_app/colors.dart';
 import 'package:transit_app/local_storage/schedule.dart';
 import 'package:transit_app/local_storage/schedule_model.dart';
+import 'package:transit_app/pages/scheduled/schedule_dialog.dart';
 import 'package:transit_app/pages/scheduled/scheduled_form.dart';
 import 'package:transit_app/widgets/screen_title.dart';
 import 'package:transit_app/local_storage/db_utils.dart';
@@ -88,6 +91,13 @@ class _ScheduledPageState extends State<ScheduledPage> {
                       ],
                     ),
                     child: ListTile(
+                      onTap: () async {
+                        var details = await jsonDecode(items[index].details!);
+                        showDialog<String>(
+                            context: context,
+                            builder: (context) => ScheduleDialog(
+                                schedule: items[index], details: details));
+                      },
                       horizontalTitleGap: 2.0,
                       leading: const Icon(
                         Icons.tram,

@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:transit_app/colors.dart';
 import 'package:transit_app/widgets/drt_elevated_button.dart';
+import 'package:transit_app/widgets/drt_snackbar.dart';
 import 'package:transit_app/widgets/screen_title.dart';
 import 'package:transit_app/widgets/text_input.dart';
 import 'package:transit_app/local_storage/schedule.dart';
@@ -143,10 +146,22 @@ class _ScheduledFormState extends State<ScheduledForm> {
                 // ),
                 DRTElevatedButton(
                   text: 'Submit',
-                  onPressed: () {
-                    // var directions = dr.getDirections(
-                    //     origin: departure, destination: destination);
+                  onPressed: () async {
+                    if (title.trim() == '' ||
+                        departure.trim() == '' ||
+                        destination.trim() == '') {
+                      DRTSnackBar.display(context, 'Please fill out all fields',
+                          backgroundColor: ibmAlertRed);
+                      return;
+                    }
+
+                    String details = await dr.getDirections(
+                      origin: departure,
+                      destination: destination,
+                    );
+                    // var directions = await jsonDecode(directionsRes);
                     // print(directions);
+
                     Navigator.of(context).pop(
                       Schedule(
                         id: id,
@@ -156,6 +171,7 @@ class _ScheduledFormState extends State<ScheduledForm> {
                         preference: schedulePreference,
                         hour: timeOfDay.hour,
                         minute: timeOfDay.minute,
+                        details: details,
                       ),
                     );
                   },
