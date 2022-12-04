@@ -53,13 +53,13 @@ class _StopBusesState extends State<StopBuses> {
               tripData[j]["trip_headsign"]
           );
           trip_ids.add(trip);
-
           buses.add(tripData[j]["route_id"]);
-          setState(() {});
         }
       }
     }
     bus_list = buses.toList();
+    bus_list.sort((a, b) => a.toString().compareTo(b.toString()));
+    setState(() {});
   }
 
   @override
@@ -92,27 +92,36 @@ class _StopBusesState extends State<StopBuses> {
                   ],
                 ),
                 const SizedBox(height: 32.0),
-                ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  itemCount: bus_list.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text("${bus_list[index]}"),
-                      onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  StopDetailWidget(
-                                      trip_ids: trip_ids,
-                                      route_id: bus_list[index],
-                                      stop_id: widget.stop_id,
-                                  ),
-                        ));
-                      },
-                    );
-                  },
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 450,
+                        child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          itemCount: bus_list.length,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              title: Text("${bus_list[index]}"),
+                              onTap: (){
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          StopDetailWidget(
+                                            trip_ids: trip_ids,
+                                            route_id: bus_list[index],
+                                            stop_id: widget.stop_id,
+                                          ),
+                                    ));
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

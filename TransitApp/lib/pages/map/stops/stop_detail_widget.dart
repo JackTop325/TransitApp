@@ -59,6 +59,7 @@ class _StopDetailWidgetState extends State<StopDetailWidget> {
       }
     }
     _arrival_times = _times.toList();
+    _arrival_times.sort((a, b) => a.compareTo(b));
     setState(() {});
   }
 
