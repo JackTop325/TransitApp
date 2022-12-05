@@ -95,11 +95,11 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     overlay = Overlay.of(context)?.context.findRenderObject();
 
-    // if(_myLocation.runtimeType.toString() != "LatLng"){
-    //   return const Center(
-    //     child: CircularProgressIndicator(),
-    //   );
-    // }
+    if(_myLocation.runtimeType.toString() == "Null"){
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
 
     return SlidingUpPanel(
       minHeight: 100,
@@ -263,6 +263,7 @@ class _MapPageState extends State<MapPage> {
     }).catchError((e) {
       debugPrint(e.toString());
     });
+    setState(() {});
   }
 
   _getLocationFromLatLong(LatLng location) async {
