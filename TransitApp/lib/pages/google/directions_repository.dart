@@ -17,8 +17,6 @@ class DirectionsRepository {
     final response = await dio.get(
       baseUrl,
       queryParameters: {
-        // 'origin': '${origin.latitude},${origin.longitude}',
-        // 'destination': '${destination.latitude},${destination.longitude}',
         'origin': origin,
         'destination': destination,
         'mode': 'transit',

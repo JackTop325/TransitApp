@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:transit_app/pages/scheduled/scheduled_form.dart';
 import 'package:transit_app/pages/splashscreen.dart';
 import 'package:transit_app/pages/login.dart';
+import 'package:transit_app/pages/setup/setup.dart';
 import 'package:transit_app/pages/home.dart';
 
 void main() {
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
             initialRoute: '/',
             routes: {
               '/': (context) => const SplashScreen(),
-              '/login': (context) => const LoginPage(),
+              '/setup': (context) => const SetupPage(),
+              // '/login': (context) => const LoginPage(),
               '/home': (context) => const HomePage(),
               '/scheduled': (context) => ScheduledForm(),
             },

@@ -164,8 +164,13 @@ class _ScheduledFormState extends State<ScheduledForm> {
 
                     var detailsObj = await jsonDecode(details);
 
-                    if (detailsObj["status"] == 'ZERO_RESULTS') {
-                      DRTSnackBar.display(context, 'Invalid location used',
+                    if (detailsObj["status"] == 'NOT_FOUND') {
+                      DRTSnackBar.display(context, 'No routes found',
+                          backgroundColor: ibmAlertRed);
+                      print('FAILED');
+                      return;
+                    } else if (detailsObj["status"] == 'ZERO_RESULTS') {
+                      DRTSnackBar.display(context, 'No routes found',
                           backgroundColor: ibmAlertRed);
                       return;
                     }
