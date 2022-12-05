@@ -68,83 +68,99 @@ class _ScheduledPageState extends State<ScheduledPage> {
                 ],
               ),
               const SizedBox(height: 32.0),
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  return Slidable(
-                    closeOnScroll: true,
-                    endActionPane: ActionPane(
-                      motion: const ScrollMotion(),
+              items.isEmpty == true
+                  ? Column(
                       children: [
-                        SlidableAction(
-                          flex: 2,
-                          onPressed: (context) => editSchedule(context, index),
-                          backgroundColor: ibmBlue['60'] as Color,
-                          foregroundColor: Colors.white,
-                          icon: Icons.edit,
-                          label: 'Edit',
-                        ),
-                        SlidableAction(
-                          flex: 2,
-                          onPressed: (context) =>
-                              deleteSchedule(items[index].id!),
-                          borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(10.0),
-                            bottomRight: Radius.circular(10.0),
-                          ),
-                          backgroundColor: ibmAlertRed,
-                          foregroundColor: Colors.white,
-                          icon: Icons.delete,
-                          label: 'Delete',
-                        ),
+                        const SizedBox(height: 64),
+                        Image.asset('assets/city_bus.png'),
+                        const SizedBox(height: 24),
+                        const Text(
+                          "Add a schedule by clicking the '+' button on the top-right. ",
+                          style: TextStyle(fontSize: 18),
+                          textAlign: TextAlign.center,
+                        )
                       ],
-                    ),
-                    child: ListTile(
-                      onTap: () async {
-                        var details = await jsonDecode(items[index].details!);
-                        showDialog<String>(
-                            context: context,
-                            builder: (context) => ScheduleDialog(
-                                schedule: items[index], details: details));
-                      },
-                      horizontalTitleGap: 2.0,
-                      leading: const Icon(
-                        Icons.tram,
-                        color: drtGreen,
-                      ),
-                      title: Text(
-                        items[index].title ?? '',
-                        style: const TextStyle(
-                          fontSize: 18.0,
-                        ),
-                      ),
-                      subtitle: Text(
-                        items[index].destination ?? '',
-                        style: const TextStyle(
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      trailing: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              items[index].preference!.split(' ')[0],
+                    )
+                  : ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: items.length,
+                      itemBuilder: (context, index) {
+                        return Slidable(
+                          closeOnScroll: true,
+                          endActionPane: ActionPane(
+                            motion: const ScrollMotion(),
+                            children: [
+                              SlidableAction(
+                                flex: 2,
+                                onPressed: (context) =>
+                                    editSchedule(context, index),
+                                backgroundColor: ibmBlue['60'] as Color,
+                                foregroundColor: Colors.white,
+                                icon: Icons.edit,
+                                label: 'Edit',
+                              ),
+                              SlidableAction(
+                                flex: 2,
+                                onPressed: (context) =>
+                                    deleteSchedule(items[index].id!),
+                                borderRadius: const BorderRadius.only(
+                                  topRight: Radius.circular(10.0),
+                                  bottomRight: Radius.circular(10.0),
+                                ),
+                                backgroundColor: ibmAlertRed,
+                                foregroundColor: Colors.white,
+                                icon: Icons.delete,
+                                label: 'Delete',
+                              ),
+                            ],
+                          ),
+                          child: ListTile(
+                            onTap: () async {
+                              var details =
+                                  await jsonDecode(items[index].details!);
+                              showDialog<String>(
+                                  context: context,
+                                  builder: (context) => ScheduleDialog(
+                                      schedule: items[index],
+                                      details: details));
+                            },
+                            horizontalTitleGap: 2.0,
+                            leading: const Icon(
+                              Icons.tram,
+                              color: drtGreen,
+                            ),
+                            title: Text(
+                              items[index].title ?? '',
                               style: const TextStyle(
-                                fontSize: 14.0,
-                                color: drtGray,
+                                fontSize: 18.0,
                               ),
                             ),
-                            Text(
-                              '${items[index].hour!.toString()}:${items[index].minute! < 10 ? '0${items[index].minute!}' : items[index].minute!.toString()}',
+                            subtitle: Text(
+                              items[index].destination ?? '',
                               style: const TextStyle(
-                                  fontSize: 18.0, color: drtGreen),
+                                fontSize: 15.0,
+                              ),
                             ),
-                          ]),
+                            trailing: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    items[index].preference!.split(' ')[0],
+                                    style: const TextStyle(
+                                      fontSize: 14.0,
+                                      color: drtGray,
+                                    ),
+                                  ),
+                                  Text(
+                                    '${items[index].hour!.toString()}:${items[index].minute! < 10 ? '0${items[index].minute!}' : items[index].minute!.toString()}',
+                                    style: const TextStyle(
+                                        fontSize: 18.0, color: drtGreen),
+                                  ),
+                                ]),
+                          ),
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
               // ScheduledList(title: 'Today'),
               // ScheduledList(title: 'All'),
             ],

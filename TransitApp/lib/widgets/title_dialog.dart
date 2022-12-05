@@ -42,6 +42,7 @@ class _TitleDialogState extends State<TitleDialog> {
               child: Container(
                 height: 40.0,
                 width: 200.0,
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 color: widget.backgroundTitleColor,
                 child: Center(
                   child: Text(
@@ -50,6 +51,7 @@ class _TitleDialogState extends State<TitleDialog> {
                       fontSize: 25.0,
                       color: widget.titleColor,
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ),
