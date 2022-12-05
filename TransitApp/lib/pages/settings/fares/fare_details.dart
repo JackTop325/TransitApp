@@ -76,7 +76,7 @@ List fareCards = [
   ),
   const FaresCard(
     category: "Senior",
-    range: "Ages 65 and older",
+    range: "Ages 65+",
     avatar: "assets/senior.png",
     palette: ibmBlue,
     details: FaresList(
