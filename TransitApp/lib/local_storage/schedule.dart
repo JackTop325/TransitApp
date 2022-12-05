@@ -45,6 +45,6 @@ class Schedule {
 
   @override
   String toString() {
-    return 'Grade[id: $id, title: $title]';
+    return 'Schedule[id: $id, title: $title]';
   }
 }

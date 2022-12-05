@@ -28,7 +28,7 @@ class ScheduleModel {
   Future updateSchedule(Schedule schedule) async {
     final db = await DBUtils.init();
     await db.update(
-      'grade_items',
+      'schedule_items',
       schedule.toMap(),
       where: 'id = ?',
       whereArgs: [schedule.id],

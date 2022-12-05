@@ -57,7 +57,6 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 decoration: const BoxDecoration(
-                  // color: Color.fromARGB(255, 167, 240, 186),
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
                 child: Row(

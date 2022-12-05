@@ -32,8 +32,6 @@ class _ScheduledFormState extends State<ScheduledForm> {
 
   @override
   Widget build(BuildContext context) {
-    var directions = dr.getDirections(
-        origin: 'Ontario Tech University', destination: 'Oshawa Go');
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -65,7 +63,7 @@ class _ScheduledFormState extends State<ScheduledForm> {
                   ],
                 ),
                 const SizedBox(height: 64.0),
-                Image.asset('assets/city_map.png'),
+                Image.asset('assets/city_bus.png'),
                 const SizedBox(height: 32.0),
                 TextFormField(
                   controller: TextEditingController(text: title),
@@ -122,6 +120,10 @@ class _ScheduledFormState extends State<ScheduledForm> {
                       },
                     ),
                     ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith(
+                            (states) => Colors.black),
+                      ),
                       onPressed: () {
                         showTimePicker(
                           context: context,
@@ -159,8 +161,14 @@ class _ScheduledFormState extends State<ScheduledForm> {
                       origin: departure,
                       destination: destination,
                     );
-                    // var directions = await jsonDecode(directionsRes);
-                    // print(directions);
+
+                    var detailsObj = await jsonDecode(details);
+
+                    if (detailsObj["status"] == 'ZERO_RESULTS') {
+                      DRTSnackBar.display(context, 'Invalid location used',
+                          backgroundColor: ibmAlertRed);
+                      return;
+                    }
 
                     Navigator.of(context).pop(
                       Schedule(

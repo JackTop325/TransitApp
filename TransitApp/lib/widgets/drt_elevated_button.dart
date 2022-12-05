@@ -36,9 +36,10 @@ class DRTElevatedButton extends StatelessWidget {
         children: [
           Text(
             text,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18.0,
               fontWeight: FontWeight.w400,
+              color: textColor,
             ),
           ),
           const SizedBox(width: 20.0),

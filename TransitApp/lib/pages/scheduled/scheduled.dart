@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:transit_app/colors.dart';
 import 'package:transit_app/local_storage/schedule.dart';
 import 'package:transit_app/local_storage/schedule_model.dart';
+import 'package:transit_app/pages/scheduled/edit_schedule.dart';
 import 'package:transit_app/pages/scheduled/schedule_dialog.dart';
 import 'package:transit_app/pages/scheduled/scheduled_form.dart';
 import 'package:transit_app/widgets/screen_title.dart';
@@ -71,18 +72,27 @@ class _ScheduledPageState extends State<ScheduledPage> {
                 shrinkWrap: true,
                 itemCount: items.length,
                 itemBuilder: (context, index) {
-                  // return ListTile(
-                  //   title: Text(items[index].title ?? ''),
-                  // );
                   return Slidable(
+                    closeOnScroll: true,
                     endActionPane: ActionPane(
-                      motion: ScrollMotion(),
+                      motion: const ScrollMotion(),
                       children: [
                         SlidableAction(
-                          // An action can be bigger than the others.
+                          flex: 2,
+                          onPressed: (context) => editSchedule(context, index),
+                          backgroundColor: ibmBlue['60'] as Color,
+                          foregroundColor: Colors.white,
+                          icon: Icons.edit,
+                          label: 'Edit',
+                        ),
+                        SlidableAction(
                           flex: 2,
                           onPressed: (context) =>
                               deleteSchedule(items[index].id!),
+                          borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(10.0),
+                            bottomRight: Radius.circular(10.0),
+                          ),
                           backgroundColor: ibmAlertRed,
                           foregroundColor: Colors.white,
                           icon: Icons.delete,
@@ -153,9 +163,19 @@ class _ScheduledPageState extends State<ScheduledPage> {
   }
 
   Future deleteSchedule(String id) async {
-    print(id);
     await model.deleteScheduleWithId(id);
     reload();
-    print('deleted');
+  }
+
+  Future editSchedule(BuildContext context, int index) async {
+    Schedule schedule = items[index];
+    String title;
+    title = await showDialog(
+        context: context,
+        builder: (context) => EditSchedule(title: items[index].title!));
+    schedule.title = title;
+    // print(schedule);
+    await model.updateSchedule(schedule);
+    reload();
   }
 }
