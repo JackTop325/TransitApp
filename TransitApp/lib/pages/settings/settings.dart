@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:transit_app/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:transit_app/local_storage/schedule_model.dart';
+import 'package:transit_app/pages/privacy_policy.dart';
 import 'package:transit_app/pages/settings/account/account.dart';
 import 'package:transit_app/pages/settings/fares/fares_dialog.dart';
 import 'package:transit_app/pages/settings/about/about_dialog.dart';
@@ -60,7 +61,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           )
                         : base64Image == ''
                             ? Image.asset(
-                                'assets/adult.png',
+                                'assets/anonymous.jpg',
                               )
                             : Image.memory(
                                 base64Decode(base64Image),
@@ -166,6 +167,17 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               const SizedBox(height: 20.0),
               TableTile(
+                title: 'Privacy Policy',
+                iconData: CupertinoIcons.person_badge_minus,
+                iconColor: Colors.white,
+                iconBackgroundColor: ibmTeal['50'],
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: ((context) => PrivacyPolicy()));
+                },
+              ),
+              TableTile(
                 title: 'Reset',
                 iconData: CupertinoIcons.gobackward,
                 iconColor: Colors.white,
@@ -181,15 +193,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   }));
                   await model.deleteAll();
                   Navigator.pushReplacementNamed(context, '/');
-                },
-              ),
-              TableTile(
-                title: 'Sign Out',
-                iconData: CupertinoIcons.person_badge_minus,
-                iconColor: Colors.white,
-                iconBackgroundColor: ibmTeal['50'],
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/login');
                 },
               ),
               const SizedBox(height: 16.0),

@@ -43,7 +43,7 @@ class _AccountPageState extends State<AccountPage> {
       final temp = File(profile.path);
       String base64Image = '';
       if (temp != null) {
-        List<int> imageBytes = temp!.readAsBytesSync();
+        List<int> imageBytes = temp.readAsBytesSync();
         base64Image = base64Encode(imageBytes);
       }
       setState(() {
@@ -95,7 +95,7 @@ class _AccountPageState extends State<AccountPage> {
                   child: image == ''
                       ? ClipOval(
                           child: Image.asset(
-                          'assets/adult.png',
+                          'assets/anonymous.jpg',
                           height: 250,
                           width: 250,
                           fit: BoxFit.cover,

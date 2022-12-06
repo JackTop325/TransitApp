@@ -79,7 +79,7 @@ class _SetupPageThreeState extends State<SetupPageThree> {
                   child: image == null
                       ? ClipOval(
                           child: Image.asset(
-                          'assets/adult.png',
+                          'assets/anonymous.jpg',
                           height: 250,
                           width: 250,
                           fit: BoxFit.cover,
