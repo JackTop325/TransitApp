@@ -8,6 +8,7 @@ import 'package:transit_app/pages/settings/account/account.dart';
 import 'package:transit_app/pages/settings/fares/fares_dialog.dart';
 import 'package:transit_app/pages/settings/about/about_dialog.dart';
 import 'package:transit_app/pages/settings/holidays/holiday_dialog.dart';
+import 'package:transit_app/pages/settings/notifications/notifications_widget.dart';
 import 'package:transit_app/pages/settings/safety/safety.dart';
 import 'package:transit_app/widgets/drt_snackbar.dart';
 import 'package:transit_app/widgets/table_tile.dart';
@@ -120,7 +121,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmRed['60'],
                 onPressed: () {
-                  DRTSnackBar.display(context, 'Feature in progress...');
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) => NotificationPage())));
                 },
               ),
               TableTile(
