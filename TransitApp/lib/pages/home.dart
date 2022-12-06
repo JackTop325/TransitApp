@@ -18,8 +18,8 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-    // const MapPage(),
-    Container(),
+    const MapPage(),
+    // Container(),
     ScheduledPage(),
     const UpdatesPage(),
     const SettingsPage(),

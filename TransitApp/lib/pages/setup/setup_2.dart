@@ -118,12 +118,13 @@ class _SetupPageTwoState extends State<SetupPageTwo> {
                   iconData: CupertinoIcons.arrow_right_circle_fill,
                   iconColor: ibmGreen['10'],
                   onPressed: () {
-                    if (selectedIndex == -1) {
-                      DRTSnackBar.display(context, 'Please select a group.',
-                          backgroundColor: ibmAlertRed);
-                    } else {
-                      Navigator.pushReplacementNamed(context, '/home');
-                    }
+                    // TODO: enable check
+                    // if (selectedIndex == -1) {
+                    //   DRTSnackBar.display(context, 'Please select a group.',
+                    //       backgroundColor: ibmAlertRed);
+                    // } else {
+                    Navigator.pushReplacementNamed(context, '/home');
+                    // }
                   },
                 ),
                 const SizedBox(height: 18.0),

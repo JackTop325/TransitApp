@@ -32,6 +32,7 @@ class _MapPageState extends State<MapPage> {
   Offset? tapXY;
   var overlay;
   List<Stop> mapMarkers = [];
+  String input = '';
 
   @override
   void initState() {
@@ -95,14 +96,14 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     overlay = Overlay.of(context)?.context.findRenderObject();
 
-    if(_myLocation.runtimeType.toString() == "Null"){
+    if (_myLocation.runtimeType.toString() == "Null") {
       return const Center(
         child: CircularProgressIndicator(),
       );
     }
 
     return SlidingUpPanel(
-      minHeight: 100,
+      minHeight: 175,
       borderRadius: const BorderRadius.vertical(
         top: Radius.circular(20),
       ),
@@ -123,38 +124,35 @@ class _MapPageState extends State<MapPage> {
                   ),
                 ),
               ),
-              //const SizedBox(height: 16.0),
-              //const TextInput(
-              //  label: 'Starting Point',
-              //  placeholder: 'Enter address',
-              //),
-              //const SizedBox(height: 16.0),
-              //const TextInput(
-              //  label: 'Destination',
-              //  placeholder: 'Enter address',
-              //),
-              //const SizedBox(height: 16.0),
-              //DRTElevatedButton(
-              //  text: 'Search',
-              //  onPressed: () {},
-              //),
               Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: CupertinoSearchTextField(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    onSubmitted: (String address) async {
-                      final List<Location> locations =
-                          await locationFromAddress(address);
-                      setState(() {
-                        mapController.move(
-                            LatLng(
-                                locations[0].latitude, locations[0].longitude),
-                            _zoom);
-                      });
-                    },
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        controller: TextEditingController(text: input),
+                        onChanged: (value) => input = value,
+                        onSaved: (newValue) => print('saved'),
+                        decoration: TextInput.textInputDecoration(
+                          label: 'Search',
+                          placeholder: 'Enter address or location',
+                          iconData: CupertinoIcons.search,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      DRTElevatedButton(
+                          text: 'Search',
+                          onPressed: () async {
+                            if (input.trim().isEmpty) return;
+                            final List<Location> locations =
+                                await locationFromAddress(input);
+                            setState(() {
+                              mapController.move(
+                                  LatLng(locations[0].latitude,
+                                      locations[0].longitude),
+                                  _zoom);
+                            });
+                          })
+                    ],
                   )),
             ],
           ),
