@@ -204,8 +204,9 @@ class _MapPageState extends State<MapPage> {
                                 );
                               },
                               icon: const Icon(
-                                Icons.circle,
+                                Icons.tram,
                                 color: Colors.green,
+                                size: 35,
                               ),
                             ),
                           );
