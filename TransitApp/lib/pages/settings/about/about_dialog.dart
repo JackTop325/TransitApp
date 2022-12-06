@@ -36,7 +36,7 @@ class _SettingsAboutDialogState extends State<SettingsAboutDialog> {
               ),
             ),
             const Text(
-              "Andrew, Drake, Jackie & Kyle",
+              "Drake, Jackie & Kyle",
               style: TextStyle(
                 fontSize: 16.0,
                 color: Colors.black,

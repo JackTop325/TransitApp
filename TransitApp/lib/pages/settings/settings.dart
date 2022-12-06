@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:transit_app/colors.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:transit_app/local_storage/schedule_model.dart';
 import 'package:transit_app/pages/settings/account/account.dart';
 import 'package:transit_app/pages/settings/fares/fares_dialog.dart';
 import 'package:transit_app/pages/settings/about/about_dialog.dart';
@@ -18,6 +19,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  ScheduleModel model = ScheduleModel();
   dynamic profile = {};
   String base64Image = '';
 
@@ -177,6 +179,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     'lang': 'en',
                     'avatar': '',
                   }));
+                  await model.deleteAll();
                   Navigator.pushReplacementNamed(context, '/');
                 },
               ),

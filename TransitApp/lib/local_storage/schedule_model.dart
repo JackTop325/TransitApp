@@ -43,4 +43,9 @@ class ScheduleModel {
       whereArgs: [id],
     );
   }
+
+  Future deleteAll() async {
+    Database db = await DBUtils.init();
+    return await db.rawDelete("DELETE from schedule_items");
+  }
 }
