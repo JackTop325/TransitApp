@@ -178,7 +178,7 @@ class _MapPageState extends State<MapPage> {
                             onTapDown: getPosition,
                             child: CircleAvatar(
                               radius: 5,
-                              backgroundColor: drtGreen,
+                              backgroundColor: ibmGreen['10'],
                               child: IconButton(
                                 onPressed: () {
                                   showMenu(
@@ -224,7 +224,7 @@ class _MapPageState extends State<MapPage> {
                                 },
                                 icon: Icon(
                                   Icons.tram,
-                                  color: ibmGreen['10'],
+                                  color: ibmGreen['80'],
                                   size: 35,
                                 ),
                               ),
