@@ -1,15 +1,10 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:transit_app/colors.dart';
-import 'package:transit_app/local_storage/schedule.dart';
-import 'package:transit_app/local_storage/schedule_model.dart';
 import 'package:transit_app/pages/map/stops/stop_detail_widget.dart';
 import 'package:transit_app/pages/map/stops/trip.dart';
-import 'package:transit_app/pages/scheduled/scheduled_form.dart';
 import 'package:transit_app/widgets/screen_title.dart';
-import 'package:transit_app/local_storage/db_utils.dart';
 
 class StopBuses extends StatefulWidget {
   StopBuses({super.key, required this.stop_id});
@@ -33,25 +28,23 @@ class _StopBusesState extends State<StopBuses> {
   }
 
   Future _loadData() async {
-    String response = await rootBundle.loadString('assets/schedule/stop_times.json');
+    String response =
+        await rootBundle.loadString('assets/schedule/stop_times.json');
     List stopTimes = json.decode(response);
 
     response = await rootBundle.loadString('assets/schedule/trips.json');
     List tripData = json.decode(response);
 
     for (int i = 0; i < stopTimes.length; i++) {
-      if(stopTimes[i]["stop_id"] == widget.stop_id){
+      if (stopTimes[i]["stop_id"] == widget.stop_id) {
         bus_ids.add(stopTimes[i]["trip_id"]);
       }
     }
     for (int i = 0; i < bus_ids.length; i++) {
       for (int j = 0; j < tripData.length; j++) {
         if (bus_ids[i] == tripData[j]["trip_id"]) {
-          Trip trip = Trip(
-              tripData[j]["route_id"],
-              tripData[j]["trip_id"],
-              tripData[j]["trip_headsign"]
-          );
+          Trip trip = Trip(tripData[j]["route_id"], tripData[j]["trip_id"],
+              tripData[j]["trip_headsign"]);
           trip_ids.add(trip);
           buses.add(tripData[j]["route_id"]);
         }
@@ -76,7 +69,6 @@ class _StopBusesState extends State<StopBuses> {
               children: [
                 const SizedBox(height: 32.0),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     IconButton(
@@ -104,16 +96,15 @@ class _StopBusesState extends State<StopBuses> {
                           itemBuilder: (context, index) {
                             return ListTile(
                               title: Text("${bus_list[index]}"),
-                              onTap: (){
+                              onTap: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) =>
-                                          StopDetailWidget(
-                                            trip_ids: trip_ids,
-                                            route_id: bus_list[index],
-                                            stop_id: widget.stop_id,
-                                          ),
+                                      builder: (context) => StopDetailWidget(
+                                        trip_ids: trip_ids,
+                                        route_id: bus_list[index],
+                                        stop_id: widget.stop_id,
+                                      ),
                                     ));
                               },
                             );
