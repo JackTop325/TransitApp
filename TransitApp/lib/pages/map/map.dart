@@ -6,7 +6,6 @@ import 'package:transit_app/colors.dart';
 import 'package:transit_app/pages/map/stops/stop_buses.dart';
 import 'package:transit_app/widgets/drt_elevated_button.dart';
 import 'package:transit_app/widgets/text_input.dart';
-import 'build_map.dart';
 import 'stops/stop_detail_widget.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
@@ -17,7 +16,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 import 'stops/stop.dart';
 import 'constants.dart';
-import 'stops/stop_buses.dart';
+import './destinations.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -148,35 +147,68 @@ class _MapPageState extends State<MapPage> {
                 ),
               ),
               Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        controller: TextEditingController(text: input),
-                        onChanged: (value) => input = value,
-                        onSaved: (newValue) => print('saved'),
-                        decoration: TextInput.textInputDecoration(
-                          label: 'Search',
-                          placeholder: 'Enter address or location',
-                          iconData: CupertinoIcons.search,
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextFormField(
+                      controller: TextEditingController(text: input),
+                      onChanged: (value) => input = value,
+                      onSaved: (newValue) => print('saved'),
+                      decoration: TextInput.textInputDecoration(
+                        label: 'Search',
+                        placeholder: 'Enter address or location',
+                        iconData: CupertinoIcons.search,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    DRTElevatedButton(
+                        text: 'Search',
+                        onPressed: () async {
+                          if (input.trim().isEmpty) return;
+                          final List<Location> locations =
+                              await locationFromAddress(input);
+                          setState(() {
+                            mapController.move(
+                                LatLng(locations[0].latitude,
+                                    locations[0].longitude),
+                                _zoom);
+                          });
+                        }),
+                    const SizedBox(height: 16),
+                    const Text(
+                      'Popular destinations',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    const SizedBox(height: 16),
+                    SingleChildScrollView(
+                      child: SizedBox(
+                        height: 260,
+                        child: ListView.builder(
+                          // shrinkWrap: true,
+                          itemCount: destinations.length,
+                          // scrollDirection: Axis.horizontal,
+                          // itemBuilder: (context, index) =>
+                          // ListTile(title: Text(destinations[index].location)),
+                          itemBuilder: ((context, index) => ListTile(
+                                onTap: () => mapController.move(
+                                    destinations[index].latlng, _zoom),
+                                leading: CircleAvatar(
+                                  backgroundColor: destinations[index].bgColor,
+                                  child: Icon(
+                                    destinations[index].iconData,
+                                    color: destinations[index].iconColor,
+                                  ),
+                                ),
+                                title: Text(destinations[index].location),
+                                subtitle: Text(destinations[index].address),
+                              )),
                         ),
                       ),
-                      const SizedBox(height: 8),
-                      DRTElevatedButton(
-                          text: 'Search',
-                          onPressed: () async {
-                            if (input.trim().isEmpty) return;
-                            final List<Location> locations =
-                                await locationFromAddress(input);
-                            setState(() {
-                              mapController.move(
-                                  LatLng(locations[0].latitude,
-                                      locations[0].longitude),
-                                  _zoom);
-                            });
-                          })
-                    ],
-                  )),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
