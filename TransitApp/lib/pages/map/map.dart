@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:transit_app/colors.dart';
 import 'package:transit_app/pages/map/stops/stop_buses.dart';
@@ -97,8 +98,30 @@ class _MapPageState extends State<MapPage> {
     overlay = Overlay.of(context)?.context.findRenderObject();
 
     if (_myLocation.runtimeType.toString() == "Null") {
-      return const Center(
-        child: CircularProgressIndicator(),
+      // return Center(
+      //   // child: CircularProgressIndicator(),
+      //   child: Image.asset('assets/bus.gif'),
+      // );
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset('assets/logo.svg'),
+            const SizedBox(
+              height: 30.0,
+            ),
+            const Text(
+              'Loading map...',
+              style: TextStyle(fontSize: 18),
+            ),
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              child: const LinearProgressIndicator(
+                color: drtGreen,
+              ),
+            ),
+          ],
+        ),
       );
     }
 
