@@ -1,13 +1,11 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:transit_app/colors.dart';
 import 'package:transit_app/pages/settings/safety/cases_graph.dart';
-import 'package:transit_app/pages/settings/safety/covid_case.dart';
 import 'package:transit_app/widgets/screen_title.dart';
 
 class SafetyPage extends StatefulWidget {
-  SafetyPage({super.key});
+  const SafetyPage({super.key});
 
   @override
   State<SafetyPage> createState() => _SafetyPageState();

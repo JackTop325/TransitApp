@@ -170,41 +170,46 @@ class _MapPageState extends State<MapPage> {
                 markers: [
                   for (int i = 0; i < mapMarkers.length; i++)
                     Marker(
-                        height: 80,
-                        width: 80,
+                        height: 60,
+                        width: 60,
                         point: mapMarkers[i].location!,
                         builder: (context) {
                           return GestureDetector(
                             onTapDown: getPosition,
-                            child: IconButton(
-                              onPressed: () {
-                                showMenu(
-                                  context: context,
-                                  position: RelativeRect.fromSize(
-                                      tapXY! & const Size(40, 40),
-                                      overlay.size),
-                                  items: [
-                                    PopupMenuItem(
-                                      child: TextButton(
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) => StopBuses(
-                                                    stop_id:
-                                                        mapMarkers[i].stop_id)),
-                                          );
-                                        },
-                                        child: Text(mapMarkers[i].stop_name),
+                            child: CircleAvatar(
+                              radius: 5,
+                              backgroundColor: drtGreen,
+                              child: IconButton(
+                                onPressed: () {
+                                  showMenu(
+                                    context: context,
+                                    position: RelativeRect.fromSize(
+                                        tapXY! & const Size(40, 40),
+                                        overlay.size),
+                                    items: [
+                                      PopupMenuItem(
+                                        child: TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StopBuses(
+                                                          stop_id: mapMarkers[i]
+                                                              .stop_id)),
+                                            );
+                                          },
+                                          child: Text(mapMarkers[i].stop_name),
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                );
-                              },
-                              icon: const Icon(
-                                Icons.tram,
-                                color: Colors.green,
-                                size: 35,
+                                    ],
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.tram,
+                                  color: ibmGreen['10'],
+                                  size: 35,
+                                ),
                               ),
                             ),
                           );
