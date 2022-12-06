@@ -183,13 +183,20 @@ class _MapPageState extends State<MapPage> {
                                 onPressed: () {
                                   showMenu(
                                     context: context,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(50)),
+                                    elevation: 8.0,
+                                    color: drtGreen,
                                     position: RelativeRect.fromSize(
                                         tapXY! & const Size(40, 40),
                                         overlay.size),
                                     items: [
                                       PopupMenuItem(
-                                        child: TextButton(
-                                          onPressed: () {
+                                        height: 24,
+                                        value: mapMarkers[i].stop_id,
+                                        child: GestureDetector(
+                                          onTap: () {
                                             Navigator.push(
                                               context,
                                               MaterialPageRoute(
@@ -199,7 +206,17 @@ class _MapPageState extends State<MapPage> {
                                                               .stop_id)),
                                             );
                                           },
-                                          child: Text(mapMarkers[i].stop_name),
+                                          child: Center(
+                                            child: Text(
+                                              mapMarkers[i].stop_name,
+                                              textAlign: TextAlign.center,
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            // ),
+                                          ),
                                         ),
                                       ),
                                     ],
