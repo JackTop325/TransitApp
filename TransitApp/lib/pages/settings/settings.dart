@@ -10,7 +10,6 @@ import 'package:transit_app/pages/settings/about/about_dialog.dart';
 import 'package:transit_app/pages/settings/holidays/holiday_dialog.dart';
 import 'package:transit_app/pages/settings/notifications/notifications_widget.dart';
 import 'package:transit_app/pages/settings/safety/safety.dart';
-import 'package:transit_app/widgets/drt_snackbar.dart';
 import 'package:transit_app/widgets/table_tile.dart';
 import 'package:transit_app/local_storage/profile.dart';
 
@@ -121,8 +120,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmRed['60'],
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => NotificationPage())));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const NotificationPage())));
                 },
               ),
               TableTile(
@@ -142,8 +143,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmPurple['70'],
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => SafetyPage())));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const SafetyPage())));
                 },
               ),
               TableTile(

@@ -15,8 +15,10 @@ class SplashScreen extends StatelessWidget {
       if (profile['init'] == false) {
         // ignore: avoid_print
         print('Profile created');
+        // ignore: use_build_context_synchronously
         Navigator.pushReplacementNamed(context, '/setup');
       } else {
+        // ignore: use_build_context_synchronously
         Navigator.pushReplacementNamed(context, '/home');
       }
     });

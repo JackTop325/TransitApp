@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:transit_app/notifications/notification.dart';
 
 import '../../../colors.dart';
 import '../../../widgets/screen_title.dart';
-
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({Key? key}) : super(key: key);
@@ -23,21 +21,20 @@ class _NotificationPageState extends State<NotificationPage> {
     _getPendingNotifications();
   }
 
-  Future _getPendingNotifications() async{
-    var pendingNotificationRequests
-    = await _notifications.getPendingNotificationRequests();
+  Future _getPendingNotifications() async {
+    var pendingNotificationRequests =
+        await _notifications.getPendingNotificationRequests();
 
-    for (var pendNot in pendingNotificationRequests){
+    for (var pendNot in pendingNotificationRequests) {
       pendingNotifications.add("${pendNot.body}");
     }
-    setState(() {
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     _notifications.init();
-    if(pendingNotifications.isEmpty){
+    if (pendingNotifications.isEmpty) {
       return Scaffold(
         body: SafeArea(
           child: Container(
@@ -62,7 +59,7 @@ class _NotificationPageState extends State<NotificationPage> {
                           color: drtGreen,
                         ),
                       ),
-                      ScreenTitle(title: 'Notifications'),
+                      const ScreenTitle(title: 'Notifications'),
                     ],
                   ),
                   const SizedBox(height: 16.0),
@@ -104,7 +101,7 @@ class _NotificationPageState extends State<NotificationPage> {
                         color: drtGreen,
                       ),
                     ),
-                    ScreenTitle(title: 'Notifications'),
+                    const ScreenTitle(title: 'Notifications'),
                   ],
                 ),
                 const SizedBox(height: 16.0),
@@ -140,4 +137,3 @@ class _NotificationPageState extends State<NotificationPage> {
     );
   }
 }
-
