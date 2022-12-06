@@ -4,10 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:transit_app/widgets/drt_snackbar.dart';
+import 'package:transit_app/notifications/notification.dart';
 import '../../../colors.dart';
-import '../../../notifications/notification.dart';
 import '../../../widgets/screen_title.dart';
-import 'arrival_times.dart';
 
 class StopDetailWidget extends StatefulWidget {
    StopDetailWidget({Key? key,
@@ -157,7 +156,12 @@ class _StopDetailWidgetState extends State<StopDetailWidget> {
                           itemCount: _arrival_times.length,
                           itemBuilder: (context, index) {
                             return ListTile(
-                              title: Text("${_arrival_times[index]}"),
+                              title: Row(
+                                children: [
+                                  const Icon(Icons.access_time),
+                                  Text("${_arrival_times[index]}"),
+                                ],
+                              ),
                               selected: index == _selectedIndex,
                               onTap: (){
                                 _selectedIndex = index;

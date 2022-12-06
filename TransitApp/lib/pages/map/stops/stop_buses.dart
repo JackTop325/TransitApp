@@ -83,7 +83,16 @@ class _StopBusesState extends State<StopBuses> {
                     const ScreenTitle(title: 'Buses'),
                   ],
                 ),
-                const SizedBox(height: 32.0),
+                const SizedBox(height: 10.0),
+                const Center(
+                  child: Text(
+                    "Select The Route",
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16.0),
                 SingleChildScrollView(
                   child: Column(
                     children: [
@@ -95,7 +104,12 @@ class _StopBusesState extends State<StopBuses> {
                           itemCount: bus_list.length,
                           itemBuilder: (context, index) {
                             return ListTile(
-                              title: Text("${bus_list[index]}"),
+                              title: Row(
+                                children: [
+                                  const Icon(Icons.tram),
+                                  Text("${bus_list[index]}"),
+                                ],
+                              ),
                               onTap: () {
                                 Navigator.push(
                                     context,
