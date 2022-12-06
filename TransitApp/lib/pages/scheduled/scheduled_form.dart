@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,7 +9,6 @@ import 'package:transit_app/widgets/screen_title.dart';
 import 'package:transit_app/widgets/text_input.dart';
 import 'package:transit_app/local_storage/schedule.dart';
 import 'package:transit_app/pages/google/directions_repository.dart';
-// import 'package:uuid/uuid.dart';
 
 class ScheduledForm extends StatefulWidget {
   ScheduledForm({super.key});
@@ -160,6 +158,9 @@ class _ScheduledFormState extends State<ScheduledForm> {
                     String details = await dr.getDirections(
                       origin: departure,
                       destination: destination,
+                      timeOfDay: timeOfDay,
+                      isDeparting:
+                          schedulePreference == 'Depart at' ? true : false,
                     );
 
                     var detailsObj = await jsonDecode(details);
