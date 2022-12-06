@@ -176,6 +176,12 @@ class _ScheduledFormState extends State<ScheduledForm> {
                       return;
                     }
 
+                    List<String> time = detailsObj['routes'][0]['legs'][0][
+                            schedulePreference == 'Depart at'
+                                ? 'departure_time'
+                                : 'arrival_time']['text']
+                        .split(':');
+
                     Navigator.of(context).pop(
                       Schedule(
                         id: id,
@@ -183,8 +189,8 @@ class _ScheduledFormState extends State<ScheduledForm> {
                         departure: departure,
                         destination: destination,
                         preference: schedulePreference,
-                        hour: timeOfDay.hour,
-                        minute: timeOfDay.minute,
+                        hour: int.parse(time[0]) + 12,
+                        minute: int.parse(time[1].substring(0, 2)),
                         details: details,
                       ),
                     );
