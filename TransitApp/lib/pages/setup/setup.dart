@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:transit_app/colors.dart';
 import 'package:transit_app/pages/privacy_policy.dart';
+import 'package:transit_app/pages/setup/setup_1.dart';
 import 'package:transit_app/widgets/drt_elevated_button.dart';
-import 'package:transit_app/widgets/text_input.dart';
 
 class SetupPage extends StatelessWidget {
   const SetupPage({super.key});
@@ -56,8 +56,10 @@ class SetupPage extends StatelessWidget {
                   text: 'Get started',
                   iconData: CupertinoIcons.arrow_right_circle_fill,
                   iconColor: ibmGreen['10'],
-                  onPressed: () =>
-                      Navigator.pushReplacementNamed(context, '/home'),
+                  onPressed: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SetupPageOne())),
                 ),
                 // const SizedBox(height: 12.0),
                 Center(
