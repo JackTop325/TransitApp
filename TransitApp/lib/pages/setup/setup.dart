@@ -62,20 +62,19 @@ class SetupPage extends StatelessWidget {
                           builder: (context) => const SetupPageOne())),
                 ),
                 // const SizedBox(height: 12.0),
-                Center(
-                  child: TextButton(
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: ((context) => PrivacyPolicy()));
-                      },
-                      child: Text(
-                        "Privacy Policy",
-                        style: TextStyle(
-                          color: ibmGreen['60'],
-                          fontSize: 16.0,
-                        ),
-                      )),
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: ((context) => PrivacyPolicy()));
+                  },
+                  child: Text(
+                    "Privacy Policy",
+                    style: TextStyle(
+                      color: ibmGreen['60'],
+                      fontSize: 16.0,
+                    ),
+                  ),
                 )
               ],
             ),

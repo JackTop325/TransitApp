@@ -91,21 +91,20 @@ class _SetupPageOneState extends State<SetupPageOne> {
                     iconData: CupertinoIcons.arrow_right_circle_fill,
                     iconColor: ibmGreen['10'],
                     onPressed: () {
-                      // TODO: Enable check
-                      // if (firstName.trim() == '' || lastName.trim() == '') {
-                      //   DRTSnackBar.display(
-                      //       context, 'Please fill out all fields.',
-                      //       backgroundColor: ibmAlertRed);
-                      // } else {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SetupPageTwo(
-                              firstName: firstName,
-                              lastName: lastName,
-                            ),
-                          ));
-                      // }
+                      if (firstName.trim() == '' || lastName.trim() == '') {
+                        DRTSnackBar.display(
+                            context, 'Please fill out all fields.',
+                            backgroundColor: ibmAlertRed);
+                      } else {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SetupPageTwo(
+                                firstName: firstName,
+                                lastName: lastName,
+                              ),
+                            ));
+                      }
                     }),
                 const SizedBox(height: 18.0),
               ],

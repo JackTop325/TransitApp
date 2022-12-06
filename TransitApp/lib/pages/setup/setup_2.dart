@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:transit_app/colors.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:transit_app/pages/setup/setup_3.dart';
 import 'package:transit_app/widgets/drt_elevated_button.dart';
 import 'package:transit_app/widgets/drt_snackbar.dart';
 
@@ -22,7 +23,7 @@ class _SetupPageTwoState extends State<SetupPageTwo> {
   int selectedIndex = -1;
   List groups = [
     {
-      'group': 'Kids',
+      'group': 'Kid',
       'desc': 'Ages 12 and under',
       'filename': 'kid.png',
     },
@@ -118,13 +119,20 @@ class _SetupPageTwoState extends State<SetupPageTwo> {
                   iconData: CupertinoIcons.arrow_right_circle_fill,
                   iconColor: ibmGreen['10'],
                   onPressed: () {
-                    // TODO: enable check
-                    // if (selectedIndex == -1) {
-                    //   DRTSnackBar.display(context, 'Please select a group.',
-                    //       backgroundColor: ibmAlertRed);
-                    // } else {
-                    Navigator.pushReplacementNamed(context, '/home');
-                    // }
+                    if (selectedIndex == -1) {
+                      DRTSnackBar.display(context, 'Please select a group.',
+                          backgroundColor: ibmAlertRed);
+                    } else {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SetupPageThree(
+                              firstName: widget.firstName,
+                              lastName: widget.lastName,
+                              group: groups[selectedIndex]['group'],
+                            ),
+                          ));
+                    }
                   },
                 ),
                 const SizedBox(height: 18.0),

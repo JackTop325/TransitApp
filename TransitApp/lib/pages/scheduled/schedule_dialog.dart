@@ -89,7 +89,8 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
                     const SizedBox(width: 4.0),
                     Text(
                       widget.details['routes'][0]['legs'][0]['duration']['text']
-                          .replaceAll(RegExp(r'hours'), 'h'),
+                          .replaceAll(RegExp(r'hour'), 'h')
+                          .replaceAll(RegExp(r's'), ''),
                       style: const TextStyle(
                         fontSize: 20,
                         color: Color.fromARGB(255, 4, 67, 23),

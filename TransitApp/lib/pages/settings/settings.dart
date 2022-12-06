@@ -1,12 +1,14 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:transit_app/colors.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:transit_app/pages/settings/account/account.dart';
 import 'package:transit_app/pages/settings/fares/fares_dialog.dart';
 import 'package:transit_app/pages/settings/about/about_dialog.dart';
 import 'package:transit_app/pages/settings/holidays/holiday_dialog.dart';
 import 'package:transit_app/widgets/drt_snackbar.dart';
 import 'package:transit_app/widgets/table_tile.dart';
-// import 'package:transit_app/colors.dart';
+import 'package:transit_app/local_storage/profile.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -16,6 +18,25 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  dynamic profile = {};
+  String base64Image = '';
+
+  @override
+  void initState() {
+    super.initState();
+    reload();
+  }
+
+  void reload() {
+    Profile.read().then((value) async {
+      dynamic json = await jsonDecode(value);
+      setState(() {
+        profile = json;
+        base64Image = json['avatar'];
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,22 +52,35 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: CircleAvatar(
                   radius: 72.0,
                   child: ClipOval(
-                    child: Image.asset(
-                      'assets/avatar.jpg',
-                    ),
+                    child: profile == {}
+                        ? Image.asset(
+                            'assets/avatar.jpg',
+                          )
+                        : base64Image == ''
+                            ? Image.asset(
+                                'assets/adult.png',
+                              )
+                            : Image.memory(
+                                base64Decode(base64Image),
+                                height: 144,
+                                width: 144,
+                                fit: BoxFit.cover,
+                              ),
                   ),
                 ),
               ),
               const SizedBox(height: 10.0),
-              const Text(
-                'Jacob Swirl',
-                style: TextStyle(
+              Text(
+                profile == {}
+                    ? 'Loading...'
+                    : '${profile['firstName']} ${profile['lastName']}',
+                style: const TextStyle(
                   fontSize: 24.0,
                 ),
               ),
               Center(
                 child: Text(
-                  'Stored locally',
+                  profile == {} ? 'Loading...' : '${profile['group']}',
                   style: TextStyle(
                     fontSize: 16.0,
                     color: ibmGray['60'],
@@ -64,8 +98,16 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconData: CupertinoIcons.person,
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmBlue['50'],
-                onPressed: () {
-                  DRTSnackBar.display(context, 'Feature in progress...');
+                onPressed: () async {
+                  // DRTSnackBar.display(context, 'Feature in progress...');
+                  await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AccountPage(
+                          profile: profile,
+                        ),
+                      ));
+                  reload();
                 },
               ),
               TableTile(
@@ -126,7 +168,15 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconData: CupertinoIcons.gobackward,
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmMagenta['60'],
-                onPressed: () {
+                onPressed: () async {
+                  await Profile.write(jsonEncode({
+                    'init': false,
+                    'firstName': '',
+                    'lastName': '',
+                    'group': '',
+                    'lang': 'en',
+                    'avatar': '',
+                  }));
                   Navigator.pushReplacementNamed(context, '/');
                 },
               ),

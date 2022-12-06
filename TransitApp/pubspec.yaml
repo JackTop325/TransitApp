@@ -31,23 +31,24 @@ environment:
 dependencies:
   carousel_slider: ^4.1.1
   cloud_firestore:
+  dio: ^4.0.6
   firebase_core:
   flutter:
     sdk: flutter
   flutter_svg: ^1.1.6
   sliding_up_panel: ^2.0.0+1
+  flutter_local_notifications:
   flutter_map: ^1.1.1
+  flutter_polyline_points: ^1.0.0
   flutter_slidable: ^2.0.0
+  google_maps_flutter: ^2.2.1 
   geocoding:
   geolocator:
-  path_provider:
+  image_picker: ^0.8.6
   http:
-  sqflite:
   path:
-  flutter_local_notifications:
-  dio: ^4.0.6
-  flutter_polyline_points: ^1.0.0
-  google_maps_flutter: ^2.2.1 
+  path_provider:
+  sqflite:
 
 
   # The following adds the Cupertino Icons font to your application.

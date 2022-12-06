@@ -1,14 +1,24 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:transit_app/colors.dart';
+import 'package:transit_app/local_storage/profile.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 1000), () {
-      Navigator.pushReplacementNamed(context, '/setup');
+    Future.delayed(const Duration(milliseconds: 1000), () async {
+      String res = await Profile.read();
+      dynamic profile = jsonDecode(res);
+      if (profile['init'] == false) {
+        // ignore: avoid_print
+        print('Profile created');
+        Navigator.pushReplacementNamed(context, '/setup');
+      } else {
+        Navigator.pushReplacementNamed(context, '/home');
+      }
     });
 
     return SafeArea(

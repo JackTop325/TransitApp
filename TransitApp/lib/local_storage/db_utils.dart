@@ -24,11 +24,3 @@ class DBUtils {
     return database;
   }
 }
-
-  // String? id;
-  // String? title;
-  // String? departure;
-  // String? destination;
-  // String? preference;
-  // int? hour;
-  // int? minute;
