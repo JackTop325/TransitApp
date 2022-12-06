@@ -8,6 +8,7 @@ import 'package:transit_app/pages/settings/account/account.dart';
 import 'package:transit_app/pages/settings/fares/fares_dialog.dart';
 import 'package:transit_app/pages/settings/about/about_dialog.dart';
 import 'package:transit_app/pages/settings/holidays/holiday_dialog.dart';
+import 'package:transit_app/pages/settings/safety/safety.dart';
 import 'package:transit_app/widgets/drt_snackbar.dart';
 import 'package:transit_app/widgets/table_tile.dart';
 import 'package:transit_app/local_storage/profile.dart';
@@ -134,12 +135,13 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
               TableTile(
-                title: 'Analytics',
-                iconData: CupertinoIcons.chart_bar_square_fill,
+                title: 'Safety',
+                iconData: Icons.masks,
                 iconColor: Colors.white,
                 iconBackgroundColor: ibmPurple['70'],
                 onPressed: () {
-                  DRTSnackBar.display(context, 'Feature in progress...');
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) => SafetyPage())));
                 },
               ),
               TableTile(

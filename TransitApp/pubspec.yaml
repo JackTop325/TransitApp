@@ -35,6 +35,7 @@ dependencies:
   firebase_core:
   flutter:
     sdk: flutter
+  fl_chart: ^0.55.2
   flutter_svg: ^1.1.6
   sliding_up_panel: ^2.0.0+1
   flutter_local_notifications:
