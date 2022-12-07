@@ -63,15 +63,25 @@ class _StopDetailWidgetState extends State<StopDetailWidget> {
   }
 
   bool _isValidTime(String time){
-    final estNow = DateTime.now();
-    // print("${estNow.hour}:${estNow.minute}");
+    final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+    // print("${now.hour}:${now.minute}");
+    int estHour = now.hour - est_offset;
 
+    if (estHour < 0){
+      estHour = 24 + estHour;
+    }
     int hour = int.parse(time.substring(0,2));
-    int minute = int.parse(time.substring(3,5));
-    DateTime temp = DateTime(estNow.year,estNow.month,estNow.day,hour,minute);
-    temp = temp.subtract(const Duration(minutes: 15));
+    int minute = int.parse(time.substring(3,5)) - 15;
 
-    if(temp.hour >= estNow.hour && temp.minute > estNow.minute){
+    if(minute < 0){
+      minute = 60-15+int.parse(time.substring(3,5));
+      hour -= 1;
+      if(hour < 0){
+        hour = 24 - 1;
+      }
+    }
+
+    if(hour >= estHour && minute > now.minute){
       return true;
     }
     return false;
@@ -176,13 +186,25 @@ class _StopDetailWidgetState extends State<StopDetailWidget> {
 
   Future _notificationLater(String arrival) async {
     final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
-    final estNow = DateTime.now();
-    // print("${estNow.hour}:${estNow.minute}");
+    print(tz.local.toString());
 
-    int hour = int.parse(arrival.substring(0,2));
-    int minute = int.parse(arrival.substring(3,5));
-    DateTime temp = DateTime(estNow.year,estNow.month,estNow.day,hour,minute);
-    temp = temp.subtract(const Duration(hours: 5,minutes: 15));
+    String time = arrival.length < 5 ? "0$arrival":arrival;
+    int hour = int.parse(time.substring(0,2)) + est_offset;
+    int minute = int.parse(time.substring(3,5)) - 15;
+    // print("$hour:$minute");
+
+    if(hour>=24){
+      hour = hour - 24;
+    }
+    // print("$hour:$minute");
+    if(minute < 0){
+      minute = 60-15+int.parse(time.substring(3,5));
+      hour -= 1;
+      if(hour < 0){
+        hour = 24 - 1;
+      }
+    }
+    // print("${now.hour}:${now.minute}");
 
     tz.TZDateTime scheduledTime = tz.TZDateTime(tz.local, now.year, now.month,
         now.day, hour, minute, now.second);
