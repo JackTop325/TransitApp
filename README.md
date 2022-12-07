@@ -5,7 +5,7 @@ Group members (3-5) (no Student IDs, only names and github usernames):
 |**Name**|**Github Username**|
 |---|---|
 | Jackie Jiang | Jacktop325 | 
-| Andrew Lim | seodong-lim | 
+| ~~Andrew Lim~~ | ~~seodong-lim~~ | 
 | Kyle Alvares| Kyle-Alvares |
 | Drake Doyle | Doyle-Github |
 
