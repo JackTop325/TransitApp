@@ -83,15 +83,6 @@ class _StopBusesState extends State<StopBuses> {
                     const ScreenTitle(title: 'Buses'),
                   ],
                 ),
-                const SizedBox(height: 10.0),
-                const Center(
-                  child: Text(
-                    "Select The Route",
-                    style: TextStyle(
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
                 const SizedBox(height: 16.0),
                 SingleChildScrollView(
                   child: Column(
@@ -103,24 +94,36 @@ class _StopBusesState extends State<StopBuses> {
                           shrinkWrap: true,
                           itemCount: bus_list.length,
                           itemBuilder: (context, index) {
-                            return ListTile(
-                              title: Row(
-                                children: [
-                                  const Icon(Icons.tram),
-                                  Text("${bus_list[index]}"),
-                                ],
+                            return Container(
+                              margin: const EdgeInsets.symmetric(vertical: 8.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: ibmGray['20'],
                               ),
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => StopDetailWidget(
-                                        trip_ids: trip_ids,
-                                        route_id: bus_list[index],
-                                        stop_id: widget.stop_id,
-                                      ),
-                                    ));
-                              },
+                              child: ListTile(
+                                leading: const Icon(
+                                  Icons.tram,
+                                  color: drtGreen,
+                                  size: 32,
+                                ),
+                                trailing: const Icon(
+                                  Icons.chevron_right,
+                                  color: drtGreen,
+                                  size: 32,
+                                ),
+                                title: Text("${bus_list[index]}"),
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => StopDetailWidget(
+                                          trip_ids: trip_ids,
+                                          route_id: bus_list[index],
+                                          stop_id: widget.stop_id,
+                                        ),
+                                      ));
+                                },
+                              ),
                             );
                           },
                         ),

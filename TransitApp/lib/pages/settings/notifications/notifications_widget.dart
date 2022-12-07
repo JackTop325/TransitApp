@@ -47,7 +47,6 @@ class _NotificationPageState extends State<NotificationPage> {
                 children: [
                   const SizedBox(height: 32.0),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       IconButton(
@@ -89,7 +88,6 @@ class _NotificationPageState extends State<NotificationPage> {
               children: [
                 const SizedBox(height: 32.0),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     IconButton(
